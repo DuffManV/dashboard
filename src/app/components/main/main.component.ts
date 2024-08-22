@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {NgForOf} from "@angular/common";
 import {ProductComponent} from "../product/product.component";
+import IProduct from "../../interfaces/IProduct";
 
 @Component({
   selector: 'app-main',
@@ -13,7 +14,7 @@ import {ProductComponent} from "../product/product.component";
   styleUrl: './main.component.scss'
 })
 export class MainComponent {
-  products = [
+  protected products: Array<IProduct>= [
     {
       name: '1',
       image: '2',
