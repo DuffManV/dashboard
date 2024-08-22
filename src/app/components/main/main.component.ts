@@ -16,7 +16,7 @@ import IProduct from "../../interfaces/IProduct";
 export class MainComponent {
   public products: Array<IProduct>= [
     {
-      picture: '1',
+      picture: '../images/notebook.jpg',
       name: '2',
       description: '3'
     },
