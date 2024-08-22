@@ -1,1 +1,9 @@
-<div>{{name}}... {{image}}... {{desc}}</div>
+<div>
+  <app-product-picture
+    [picture]="product.picture">
+  </app-product-picture>
+  <app-product-description
+    [name]="product.name"
+    [description]="product.description">
+  </app-product-description>
+</div>

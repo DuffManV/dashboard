@@ -14,47 +14,46 @@ import IProduct from "../../interfaces/IProduct";
   styleUrl: './main.component.scss'
 })
 export class MainComponent {
-  protected products: Array<IProduct>= [
+  public products: Array<IProduct>= [
     {
-      name: '1',
-      image: '2',
-      desc: '3'
-    },    {
-      name: '1',
-      image: '2',
-      desc: '3'
-    },    {
-      name: '1',
-      image: '2',
-      desc: '3'
-    },    {
-      name: '1',
-      image: '2',
-      desc: '3'
-    },    {
-      name: '1',
-      image: '2',
-      desc: '3'
-    },    {
-      name: '1',
-      image: '2',
-      desc: '3'
-    },    {
-      name: '1',
-      image: '2',
-      desc: '3'
-    },    {
-      name: '1',
-      image: '2',
-      desc: '3'
-    },    {
-      name: '1',
-      image: '2',
-      desc: '3'
-    },    {
-      name: '1',
-      image: '2',
-      desc: '3'
+      picture: '1',
+      name: '2',
+      description: '3'
+    },
+    {
+      picture: '1',
+      name: '2',
+      description: '3'
+    },
+    {
+      picture: '1',
+      name: '2',
+      description: '3'
+    },
+    {
+      picture: '1',
+      name: '2',
+      description: '3'
+    },
+    {
+      picture: '1',
+      name: '2',
+      description: '3'
+    },
+    {
+      picture: '1',
+      name: '2',
+      description: '3'
+    },
+    {
+      picture: '1',
+      name: '2',
+      description: '3'
+    },
+    {
+      picture: '1',
+      name: '2',
+      description: '3'
     },
 
   ]

@@ -1,6 +1,6 @@
 interface IProduct {
+  picture: string,
   name: string,
-  image: string,
-  desc: string
+  description: string
 }
 export default IProduct;
