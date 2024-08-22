@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {InputTextModule} from "primeng/inputtext";
 import {FormsModule} from "@angular/forms";
 import {ButtonComponent} from "../../ui/button/button.component";
+import {InputComponent} from "../../ui/input/input.component";
 
 @Component({
   selector: 'app-search',
@@ -9,15 +10,12 @@ import {ButtonComponent} from "../../ui/button/button.component";
   imports: [
     InputTextModule,
     FormsModule,
-    ButtonComponent
+    ButtonComponent,
+    InputComponent
   ],
   templateUrl: './search.component.html',
   styleUrl: './search.component.scss'
 })
 export class SearchComponent {
-  searchString: string = '';
 
-  changeInput = (e: string) => {
-    console.log(e)
-  }
 }
