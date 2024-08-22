@@ -1,1 +1,5 @@
-<p>main works!</p>
+<div *ngFor="let product of products" class='col-xl-12' >
+  <ng-container class="col-xl-3">
+    <app-product [name]="product.name" [image]="product.image" [desc]="product.desc"></app-product>
+  </ng-container>
+</div>
