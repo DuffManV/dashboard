@@ -18,44 +18,53 @@ export class MainComponent {
     {
       picture: '../images/notebook.jpg',
       name: '2',
-      description: '3'
+      price: '300',
+      description: '3',
+      time: 'Сегодня в 15-30',
     },
     {
-      picture: '1',
+      picture: '../images/notebook.jpg',
       name: '2',
-      description: '3'
-    },
-    {
-      picture: '1',
+      price: '300',
+      description: '3',
+      time: 'Сегодня в 15-30',
+    },    {
+      picture: '../images/notebook.jpg',
       name: '2',
-      description: '3'
-    },
-    {
-      picture: '1',
+      price: '300',
+      description: '3',
+      time: 'Сегодня в 15-30',
+    },    {
+      picture: '../images/notebook.jpg',
       name: '2',
-      description: '3'
-    },
-    {
-      picture: '1',
+      price: '300',
+      description: '3',
+      time: 'Сегодня в 15-30',
+    },    {
+      picture: '../images/notebook.jpg',
       name: '2',
-      description: '3'
-    },
-    {
-      picture: '1',
+      price: '300',
+      description: '3',
+      time: 'Сегодня в 15-30',
+    },    {
+      picture: '../images/notebook.jpg',
       name: '2',
-      description: '3'
-    },
-    {
-      picture: '1',
+      price: '300',
+      description: '3',
+      time: 'Сегодня в 15-30',
+    },    {
+      picture: '../images/notebook.jpg',
       name: '2',
-      description: '3'
-    },
-    {
-      picture: '1',
+      price: '300',
+      description: '3',
+      time: 'Сегодня в 15-30',
+    },    {
+      picture: '../images/notebook.jpg',
       name: '2',
-      description: '3'
+      price: '300',
+      description: '3',
+      time: 'Сегодня в 15-30',
     },
-
   ]
 
 }

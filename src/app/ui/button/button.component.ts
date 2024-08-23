@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Button, ButtonModule} from 'primeng/button';
 
 
@@ -12,5 +12,7 @@ import {Button, ButtonModule} from 'primeng/button';
   styleUrl: './button.component.scss'
 })
 export class ButtonComponent {
-
+  @Input() icon: string = '';
+  @Input() cssClass: string = '';
+  @Input() label: string = '';
 }

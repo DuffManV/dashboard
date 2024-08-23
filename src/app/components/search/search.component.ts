@@ -17,5 +17,6 @@ import {InputComponent} from "../../ui/input/input.component";
   styleUrl: './search.component.scss'
 })
 export class SearchComponent {
-
+ searchIcon: string = "pi pi-search";
+ cssClass: string = "button-search";
 }

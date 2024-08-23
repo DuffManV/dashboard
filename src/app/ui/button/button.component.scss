@@ -1,3 +1,20 @@
-.button-component {
+::ng-deep {
+  .p-button {
+    border-radius: 4px;
+  }
+}
+
+.button {
   display: inline-flex;
+  &-icon--wrapper {
+    display: inline-block;
+    margin-left: 10px;
+  }
+  &-search {
+    ::ng-deep {
+      .p-button {
+        border-radius: 0 4px 4px 0;
+      }
+    }
+  }
 }
