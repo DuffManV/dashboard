@@ -1,5 +1,11 @@
-<div>
-<app-title [title]="title"></app-title>  <app-login></app-login>
-  <app-button [icon]="newPostIcon">Новое объявление</app-button>
+<div class="header">
+  <div class="d-flex justify-content-between">
+    <app-title [title]="title"></app-title>
+    <span>
+      <app-login></app-login>
+    <app-button [icon]="newPostIcon">Новое объявление</app-button>
+    </span>
+  </div>
+
   <app-search></app-search>
 </div>
