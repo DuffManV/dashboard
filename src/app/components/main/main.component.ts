@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {NgForOf} from "@angular/common";
 import {ProductComponent} from "../product/product.component";
 import IProduct from "../../interfaces/IProduct";
-import {BreadscrumbsComponent} from "./breadscrumbs/breadscrumbs.component";
+import {BreadscrumbsComponent} from "../header/breadscrumbs/breadscrumbs.component";
 
 @Component({
   selector: 'app-main',

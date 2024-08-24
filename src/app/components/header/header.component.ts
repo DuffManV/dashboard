@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {SearchComponent} from "../search/search.component";
+import {SearchComponent} from "./search/search.component";
 import {ButtonComponent} from "../../ui/button/button.component";
 import {LoginComponent} from "./login/login.component";
 import {TitleComponent} from "./title/title.component";
@@ -17,6 +17,7 @@ import {TitleComponent} from "./title/title.component";
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  newPostIcon = "pi pi-plus";
+  newPostIcon: string = "pi pi-plus";
   title: string = "Доска объявлений";
+  postButtonCss: string = "button-post"
 }

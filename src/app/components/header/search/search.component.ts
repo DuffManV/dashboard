@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import {InputTextModule} from "primeng/inputtext";
 import {FormsModule} from "@angular/forms";
-import {ButtonComponent} from "../../ui/button/button.component";
-import {InputComponent} from "../../ui/input/input.component";
+import {ButtonComponent} from "../../../ui/button/button.component";
+import {InputComponent} from "../../../ui/input/input.component";
 
 @Component({
   selector: 'app-search',
