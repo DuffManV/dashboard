@@ -15,4 +15,5 @@ export class ButtonComponent {
   @Input() icon: string = '';
   @Input() cssClass: string = '';
   @Input() label: string = '';
+  @Input() outlined: string = "false";
 }
