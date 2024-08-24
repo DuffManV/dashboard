@@ -1,4 +1,13 @@
 .header {
-  color: white;
-  background-color: black;
+  &-block{
+    &--black {
+      color: white;
+      background-color: black;
+    }
+    &--white {
+      color: black;
+      background-color: white;
+    }
+  }
+
 }
