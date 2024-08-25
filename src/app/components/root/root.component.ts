@@ -12,5 +12,5 @@ import {MainComponent} from "../main/main.component";
   styleUrl: './root.component.scss'
 })
 export class RootComponent {
-  public title: string = 'project';
+  public title: string = 'Доска объявлений';
 }

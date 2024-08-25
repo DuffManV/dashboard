@@ -3,6 +3,7 @@ import {SearchComponent} from "./search/search.component";
 import {ButtonComponent} from "../../ui/button/button.component";
 import {LoginComponent} from "./login/login.component";
 import {TitleComponent} from "./title/title.component";
+import {Button} from "primeng/button";
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,8 @@ import {TitleComponent} from "./title/title.component";
     SearchComponent,
     ButtonComponent,
     LoginComponent,
-    TitleComponent
+    TitleComponent,
+    Button
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'

@@ -9,7 +9,7 @@ import {Component, Input} from '@angular/core';
 })
 export class ProductDescriptionComponent {
   @Input() name: string = '';
-  @Input() description: string = '';
+  @Input() location: string = '';
   @Input() price: string = '';
   @Input() time: string = '';
 }

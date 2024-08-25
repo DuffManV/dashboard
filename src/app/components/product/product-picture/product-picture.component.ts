@@ -11,5 +11,5 @@ import {NgOptimizedImage} from "@angular/common";
   styleUrl: './product-picture.component.scss'
 })
 export class ProductPictureComponent {
-  @Input() picture = '';
+  @Input() picture: string = '';
 }

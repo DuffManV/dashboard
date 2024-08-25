@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {NgForOf} from "@angular/common";
 import {ProductComponent} from "../product/product.component";
 import IProduct from "../../interfaces/IProduct";
-import {BreadscrumbsComponent} from "../header/breadscrumbs/breadscrumbs.component";
+import {BreadscrumbsComponent} from "./breadscrumbs/breadscrumbs.component";
 
 @Component({
   selector: 'app-main',
@@ -21,64 +21,51 @@ export class MainComponent {
       picture: '../images/notebook.jpg',
       name: 'Название',
       price: '300',
-      description: 'Описание',
+      location: 'Адрес',
       time: 'Сегодня в 15-30',
     },
     {
       picture: '../images/notebook.jpg',
       name: 'Название',
       price: '300',
-      description: 'Описание',
+      location: 'Адрес',
       time: 'Сегодня в 15-30',
-    }, {
+    },    {
       picture: '../images/notebook.jpg',
       name: 'Название',
       price: '300',
-      description: 'Описание',
+      location: 'Адрес',
       time: 'Сегодня в 15-30',
-    }, {
+    },    {
       picture: '../images/notebook.jpg',
       name: 'Название',
       price: '300',
-      description: 'Описание',
+      location: 'Адрес',
       time: 'Сегодня в 15-30',
-    }, {
+    },    {
       picture: '../images/notebook.jpg',
       name: 'Название',
       price: '300',
-      description: 'Описание',
+      location: 'Адрес',
       time: 'Сегодня в 15-30',
-    }, {
+    },    {
       picture: '../images/notebook.jpg',
       name: 'Название',
       price: '300',
-      description: 'Описание',
+      location: 'Адрес',
       time: 'Сегодня в 15-30',
-    }, {
+    },    {
       picture: '../images/notebook.jpg',
       name: 'Название',
       price: '300',
-      description: 'Описание',
+      location: 'Адрес',
       time: 'Сегодня в 15-30',
-    }, {
+    },    {
       picture: '../images/notebook.jpg',
       name: 'Название',
       price: '300',
-      description: 'Описание',
-      time: 'Сегодня в 15-30',
-    }, {
-      picture: '../images/notebook.jpg',
-      name: 'Название',
-      price: '300',
-      description: 'Описание',
-      time: 'Сегодня в 15-30',
-    }, {
-      picture: '../images/notebook.jpg',
-      name: 'Название',
-      price: '300',
-      description: 'Описание',
+      location: 'Адрес',
       time: 'Сегодня в 15-30',
     },
   ]
-
 }

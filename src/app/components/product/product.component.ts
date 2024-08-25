@@ -14,5 +14,5 @@ import {ProductPictureComponent} from "./product-picture/product-picture.compone
   styleUrl: './product.component.scss'
 })
 export class ProductComponent {
-  @Input() product: IProduct = {picture: '', name: '', price: '', description: '', time: ''};
+  @Input() product: IProduct = {picture: '', name: '', price: '', location: '', time: ''};
 }

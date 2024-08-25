@@ -20,7 +20,8 @@
   &-post {
     ::ng-deep {
       .p-button {
-        border-radius: 0 4px 4px 0;
+        border-radius: 4px;
+        margin: 6px;
       }
     }
   }
