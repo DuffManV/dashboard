@@ -1,7 +1,7 @@
 <span>
   <span class="input-wrapper">
-      <app-input></app-input>
+<input type="text" class="input-component" pInputText [(ngModel)]="searchString" (ngModelChange)="changeInput($event)"/>
   </span>
-  <app-button [icon]="searchIcon" [cssClass]="cssClass">Найти</app-button>
+ <app-button (click)="clickHandler($event)" [icon]="searchIcon" [cssClass]="cssClass">Найти</app-button>
 </span>
 
