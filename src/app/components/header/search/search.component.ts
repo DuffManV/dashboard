@@ -17,14 +17,14 @@ import {Button} from "primeng/button";
   styleUrl: './search.component.scss'
 })
 export class SearchComponent {
-  public searchIcon: string = "pi pi-search";
-  public cssClass: string = "button-search";
-  public searchString: string = '';
+  protected readonly searchIcon: string = "pi pi-search";
+  protected readonly cssClass: string = "button-search";
+  protected searchString: string = '';
 
-  public changeInput = (e: string): void => {
+  protected changeInput = (e: string): void => {
     console.log(e);
   }
-  public clickHandler = (e: Event): void => {
+  protected clickHandler = (e: Event): void => {
     console.log(e.target);
   }
  }

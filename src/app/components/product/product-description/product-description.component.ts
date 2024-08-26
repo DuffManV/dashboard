@@ -8,8 +8,8 @@ import {Component, Input} from '@angular/core';
   styleUrl: './product-description.component.scss'
 })
 export class ProductDescriptionComponent {
-  @Input() name: string = '';
-  @Input() location: string = '';
-  @Input() price: string = '';
-  @Input() time: string = '';
+  @Input() public name: string = '';
+  @Input() public location: string = '';
+  @Input() public price: string = '';
+  @Input() public time: string = '';
 }
