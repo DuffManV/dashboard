@@ -14,9 +14,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
   styleUrl: './input.component.scss'
 })
 export class InputComponent {
-  searchString: string = '';
+  public searchString: string = '';
 
-  changeInput = (e: string) => {
+  public changeInput = (e: string): void => {
     console.log(e)
   }
 }

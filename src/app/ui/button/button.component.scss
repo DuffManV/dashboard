@@ -2,13 +2,15 @@
   .p-button {
     border-radius: 4px;
   }
+  .icon-left {
+    flex-direction: row-reverse;
+  }
 }
 
 .button {
   display: inline-flex;
   &-icon--wrapper {
-    display: inline-block;
-    margin-left: 10px;
+    margin: 0 10px;
   }
   &-search {
     ::ng-deep {
@@ -21,7 +23,7 @@
     ::ng-deep {
       .p-button {
         border-radius: 4px;
-        margin: 6px;
+        margin: 6px 0 6px 6px;
       }
     }
   }
