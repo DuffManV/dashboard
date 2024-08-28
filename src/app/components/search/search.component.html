@@ -1,0 +1,17 @@
+<form #searchForm="ngForm" class="search d-flex justify-content-end" (ngSubmit)="onSubmit()">
+    <input
+      type="text"
+      class="input-component"
+      placeholder="Поиск"
+      pInputText
+      [(ngModel)]="searchString"
+      (ngModelChange)="changeInput()"
+      [ngModelOptions]="{standalone: true}"
+    />
+  <app-button
+    (click)="clickHandler($event)"
+    [icon]="searchIcon"
+    [cssClass]="cssClass"
+    >Найти
+  </app-button>
+</form>

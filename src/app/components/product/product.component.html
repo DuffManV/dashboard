@@ -1,15 +1,15 @@
-<div>
-  <a href="#">
-    <app-product-picture
-      [picture]="product.picture">
-    </app-product-picture>
+<div class="product mb-4">
+  <a class="product-picture-link" href="#">
+    <img class="product-picture-link--img" ngSrc="{{product.picture}}" width="250" height="160" alt="picture" priority>
   </a>
-</div>
-<div class="mb-4">
-  <app-product-description
-    [name]="product.name"
-    [price]="product.price"
-    [location]="product.location"
-    [time]="product.time">
-  </app-product-description>
+  <div class="product-info">
+    <h4 class="mb-4">
+      <a href="#">{{product.name}}</a>
+    </h4>
+    <h5>{{product.price}} &#8381;</h5>
+    <div>
+      <small>{{product.location}}</small>
+    </div>
+    <small>{{product.time}}</small>
+  </div>
 </div>

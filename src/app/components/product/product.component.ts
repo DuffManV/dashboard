@@ -1,18 +1,20 @@
-import {Component, Input} from '@angular/core';
-import IProduct from "../../interfaces/IProduct";
-import {ProductDescriptionComponent} from "./product-description/product-description.component";
-import {ProductPictureComponent} from "./product-picture/product-picture.component";
+import { Component, Input } from '@angular/core';
+import IProduct from '../../interfaces/IProduct';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [
-    ProductDescriptionComponent,
-    ProductPictureComponent
-  ],
+  imports: [NgOptimizedImage],
   templateUrl: './product.component.html',
-  styleUrl: './product.component.scss'
+  styleUrl: './product.component.scss',
 })
 export class ProductComponent {
-  @Input() public product: IProduct = {picture: '', name: '', price: '', location: '', time: ''};
+  @Input() public product: IProduct = {
+    picture: '',
+    name: '',
+    price: '',
+    location: '',
+    time: '',
+  };
 }
