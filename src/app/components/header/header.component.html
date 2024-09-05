@@ -1,24 +1,4 @@
-<div class="header-block--black d-flex justify-content-center">
-  <div
-    class="d-flex col-xl-10 col-lg-10 col-md-10 col-sm-12 justify-content-end"
-  >
-    <span>
-      <app-login></app-login>
-      <app-button [icon]="newPostIcon" [cssClass]="postButtonCss"
-        >Новое объявление</app-button
-      >
-    </span>
-  </div>
-</div>
-<div class="container col-10 justify-content-center mt-4 ps-0 pe-0">
-  <div class="row justify-content-between">
-    <h2 class="d-inline-flex align-items-center col-4">{{ title }}</h2>
-    <p-button
-      outlined="true"
-      label="Все категории"
-      icon="pi pi-bars pe-2"
-      class="login col-xl-2 col-lg-2 col-md-6 col-sm-12 col-md-2"
-    ></p-button>
-    <app-search class="col-3"></app-search>
-  </div>
-</div>
+<header>
+  <app-header-up></app-header-up>
+  <app-header-down></app-header-down>
+</header>

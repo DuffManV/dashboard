@@ -1,0 +1,50 @@
+.all-advertisements {
+  summary {
+    list-style-type: "\203A";
+    //rotate: 180deg;
+  }
+  &-tree {
+
+  }
+}
+
+::ng-deep {
+  .p-tree-container,
+  .p-tree-toggler {
+    color: #3B82F6;
+    font-size: 16px;
+    justify-content: start;
+  }
+
+  .p-tree-container {
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .p-tree-toggler {
+    width: 20px;
+  }
+
+  .p-treenode-children {
+    padding: 7px;
+  }
+
+  .p-treenode-content {
+    box-shadow: none;
+  }
+}
+
+.price {
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 8px !important;
+  &-from,
+  &-until {
+    height: 40px;
+
+    ::placeholder {
+      color: #64748B;
+    }
+  }
+}
+

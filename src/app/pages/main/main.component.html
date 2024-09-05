@@ -1,12 +1,14 @@
 <div class="d-flex justify-content-center mt-4">
-  <div class="col-xl-10 col-md-10 col-sm-6 justify-content-between">
+  <div class="col-xl-8 col-md-8 col-sm-6 justify-content-between">
     <div>
         <h4 class="mb-3">Рекомендации для вас</h4>
     </div>
-    <ul class="d-flex row flex-wrap justify-content-lg-between mb-5 ps-0">
-      <li *ngFor="let product of products" class='col-xl-3 col-lg-3 col-md-4 col-sm-12'>
-        <app-product class="mb-1" [product]="product"></app-product>
-      </li>
+    <ul class="row flex-wrap justify-content-lg-between mb-5 ps-0">
+      @for (product of products$ | async; track $index) {
+        <li class='col-xl-3 col-lg-3 col-md-3 col-sm-12'>
+          <app-product-preview class="mb-1" [product]="product"></app-product-preview>
+        </li>
+      }
     </ul>
   </div>
 </div>

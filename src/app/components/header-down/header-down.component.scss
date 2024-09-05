@@ -1,0 +1,15 @@
+.all-categories-button {
+  height: 36px;
+  ::ng-deep {
+    button {
+      height: 100%;
+      &:hover {
+        background-color: #3B82F6;
+        color: #fff;
+        svg > path {
+          fill: #fff;
+        }
+      }
+    }
+  }
+}

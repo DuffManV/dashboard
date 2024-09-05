@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { Button, ButtonModule } from 'primeng/button';
+import { Button } from 'primeng/button';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-button',
   standalone: true,
-  imports: [Button],
+  imports: [Button, NgClass],
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
 })

@@ -1,9 +1,13 @@
 .search {
 }
-.input-wrapper {
-  display: inline-block;
-  .input-component {
+.input {
+  &-wrapper {
+    display: inline-block;
+
+  }
+  &-component {
     display: inline-flex;
+    height: 36px;
     width: 100%;
     border-radius: 4px 0 0 4px;
   }

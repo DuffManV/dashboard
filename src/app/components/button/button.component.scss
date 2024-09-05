@@ -1,14 +1,15 @@
 ::ng-deep {
   .p-button {
+    width: 100%;
     border-radius: 4px;
   }
+
   .icon-left {
     flex-direction: row-reverse;
   }
 }
 
 .button {
-  display: inline-flex;
   &-icon--wrapper {
     margin: 0 10px;
   }
@@ -16,6 +17,7 @@
   &-search {
     ::ng-deep {
       .p-button {
+        height: 36px;
         border-radius: 0 4px 4px 0;
       }
     }
@@ -24,6 +26,7 @@
   &-post {
     ::ng-deep {
       .p-button {
+        height: 32px;
         border-radius: 4px;
         margin: 6px 0 6px 6px;
       }

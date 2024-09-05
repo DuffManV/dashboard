@@ -1,71 +1,17 @@
-import {Component} from '@angular/core';
-import {NgForOf} from "@angular/common";
-import {ProductComponent} from "../../components/product/product.component";
-import IProduct from "../../interfaces/IProduct";
-import {BreadcrumbsComponent} from "../../components/breadscrumbs/breadcrumbs.component";
+import { Component } from '@angular/core';
+import { AsyncPipe, NgForOf } from '@angular/common';
+import { ProductPreviewComponent } from '../../components/product-preview/product-preview.component';
+import IProduct from '../../interfaces/IProduct';
+import { Observable, of } from 'rxjs';
+import products$ from '../../data/products';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [
-    NgForOf,
-    ProductComponent,
-    BreadcrumbsComponent
-  ],
+  imports: [NgForOf, ProductPreviewComponent, AsyncPipe],
   templateUrl: './main.component.html',
-  styleUrl: './main.component.scss'
+  styleUrl: './main.component.scss',
 })
 export class MainComponent {
-  public products: Array<IProduct> = [
-    {
-      picture: '../images/notebook.jpg',
-      name: 'Название',
-      price: '300',
-      location: 'Адрес',
-      time: 'Сегодня в 15-30',
-    },
-    {
-      picture: '../images/notebook.jpg',
-      name: 'Название',
-      price: '300',
-      location: 'Адрес',
-      time: 'Сегодня в 15-30',
-    },    {
-      picture: '../images/notebook.jpg',
-      name: 'Название',
-      price: '300',
-      location: 'Адрес',
-      time: 'Сегодня в 15-30',
-    },    {
-      picture: '../images/notebook.jpg',
-      name: 'Название',
-      price: '300',
-      location: 'Адрес',
-      time: 'Сегодня в 15-30',
-    },    {
-      picture: '../images/notebook.jpg',
-      name: 'Название',
-      price: '300',
-      location: 'Адрес',
-      time: 'Сегодня в 15-30',
-    },    {
-      picture: '../images/notebook.jpg',
-      name: 'Название',
-      price: '300',
-      location: 'Адрес',
-      time: 'Сегодня в 15-30',
-    },    {
-      picture: '../images/notebook.jpg',
-      name: 'Название',
-      price: '300',
-      location: 'Адрес',
-      time: 'Сегодня в 15-30',
-    },    {
-      picture: '../images/notebook.jpg',
-      name: 'Название',
-      price: '300',
-      location: 'Адрес',
-      time: 'Сегодня в 15-30',
-    },
-  ]
+  public products$: Observable<IProduct[]> = products$;
 }

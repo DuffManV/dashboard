@@ -1,0 +1,41 @@
+.product {
+  &:hover {
+    //position: absolute;
+    //zoom: 1.1;
+    cursor: pointer;
+    .product-picture-link {
+      transition: .2s;
+    }
+    .product-info {
+      border-radius: 0 0 4px 4px;
+      background-color: #dfecff;
+      transition: .2s;
+      &-name {
+        font-size: 24px;
+      }
+      &-price {
+        color: #1E293B;
+      }
+      &-location {
+
+      }
+      &-date {
+
+      }
+    }
+  }
+  &-picture-link {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+
+    &--img {
+      display: inline-flex;
+      width: 100%;
+      height: 100%;
+      object-position: center;
+      object-fit: cover;
+      border-radius: 4px 4px 0 0;
+    }
+  }
+}

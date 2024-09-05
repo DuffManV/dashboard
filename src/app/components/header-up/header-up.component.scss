@@ -1,0 +1,19 @@
+.header {
+  &-block {
+    &--black {
+      height: 52px;
+      color: #fff;
+      background-color: #1E293B;
+    }
+  }
+}
+
+.all-categories-button {
+  ::ng-deep {
+    height: 36px;
+
+    button {
+      height: 100%;
+    }
+  }
+}

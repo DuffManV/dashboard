@@ -26,8 +26,4 @@ export class SearchComponent {
   public clickHandler = (e: Event): void => {
     console.log(this.searchString);
   };
-
-  ngOnInit(): void {
-    JSON.stringify(this.form.controls);
-  }
 }

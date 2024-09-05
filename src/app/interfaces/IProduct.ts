@@ -3,6 +3,6 @@ interface IProduct {
   name: string;
   price: string;
   location: string;
-  time: string;
+  date: string;
 }
 export default IProduct;

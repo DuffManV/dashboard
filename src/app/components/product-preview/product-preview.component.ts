@@ -1,20 +1,20 @@
 import { Component, Input } from '@angular/core';
-import IProduct from '../../interfaces/IProduct';
 import { NgOptimizedImage } from '@angular/common';
+import IProduct from '../../interfaces/IProduct';
 
 @Component({
-  selector: 'app-product',
+  selector: 'app-product-preview',
   standalone: true,
   imports: [NgOptimizedImage],
-  templateUrl: './product.component.html',
-  styleUrl: './product.component.scss',
+  templateUrl: './product-preview.component.html',
+  styleUrl: './product-preview.component.scss',
 })
-export class ProductComponent {
+export class ProductPreviewComponent {
   @Input() public product: IProduct = {
     picture: '',
     name: '',
     price: '',
     location: '',
-    time: '',
+    date: '',
   };
 }
