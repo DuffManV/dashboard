@@ -9,7 +9,8 @@
       [ngModelOptions]="{standalone: true}"
     />
   <app-button
-    (click)="clickHandler($event)"
+    (click)="clickHandler()"
+    (submit)="clickHandler()"
     [icon]="searchIcon"
     [cssClass]="cssClass"
     >Найти

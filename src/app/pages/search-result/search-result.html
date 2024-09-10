@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center mt-4">
   <div class="col-xl-8 col-md-8 col-sm-12 justify-content-between">
     <div>
-      <h4 class="mb-3">Объявления по запросу <<{{ request }}>></h4>
+      <h4 class="mb-3">{{title}} &laquo;{{ request }}&raquo;</h4>
     </div>
     <div class="d-flex col-12 justify-content-between">
       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4">
@@ -10,7 +10,7 @@
                   (onNodeUnselect)="listenEvent($event)" [(selection)]="selectedNode"
                   [value]="categories$ | async"/>
         </div>
-        <h5 class="price mt-3 mb-3">Цена</h5>
+        <h5 class="price mt-3 mb-3">{{priceLabel}}</h5>
         <p-inputGroup>
           <input type="text" pInputText class="price-from me-2" placeholder="Цена от"/>
           <input type="text" pInputText class="price-until" placeholder="Цена до"/>

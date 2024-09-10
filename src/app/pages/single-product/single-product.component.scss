@@ -1,0 +1,13 @@
+.product {
+  &-image {
+    object-position: center;
+    object-fit: contain;
+  }
+}
+
+::ng-deep {
+  .p-galleria-item {
+    object-position: center;
+    object-fit: cover;
+  }
+}

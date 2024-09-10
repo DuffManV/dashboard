@@ -1,4 +1,5 @@
 interface ICategory {
+  id: number;
   label: string;
   icon?: string;
   children: ISubCategory[];

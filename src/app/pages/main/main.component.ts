@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Signal } from '@angular/core';
 import { AsyncPipe, NgForOf } from '@angular/common';
 import { ProductPreviewComponent } from '../../components/product-preview/product-preview.component';
 import IProduct from '../../interfaces/IProduct';
-import { Observable, of } from 'rxjs';
 import products$ from '../../data/products';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-main',
@@ -13,5 +13,7 @@ import products$ from '../../data/products';
   styleUrl: './main.component.scss',
 })
 export class MainComponent {
-  public products$: Observable<IProduct[]> = products$;
+  public products: Signal<IProduct[] | undefined> = toSignal<
+    IProduct[] | undefined
+  >(products$);
 }

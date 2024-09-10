@@ -3,6 +3,9 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { ButtonComponent } from '../button/button.component';
 import { Button } from 'primeng/button';
+import { ActivatedRoute, provideRouter, Router } from '@angular/router';
+import * as test from 'node:test';
+import { serveWebpackBrowser } from '@angular-devkit/build-angular/src/builders/dev-server/webpack-server';
 
 @Component({
   selector: 'app-search',
@@ -18,12 +21,14 @@ export class SearchComponent {
   public searchString: string = '';
 
   public onSubmit(): void {
-    console.log(this.form.controls);
+    this.router.navigate(['search/', this.searchString]);
   }
   public changeInput = (): void => {
-    console.log(JSON.stringify(this.form.controls));
-  };
-  public clickHandler = (e: Event): void => {
     console.log(this.searchString);
+  };
+
+  constructor(private router: Router) {}
+  public clickHandler = (): void => {
+    this.router.navigate(['search/', this.searchString]);
   };
 }

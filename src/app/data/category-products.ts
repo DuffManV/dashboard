@@ -3,6 +3,7 @@ import IProduct from '../interfaces/IProduct';
 
 const categoryProducts$: Observable<IProduct[]> = of([
   {
+    id: 1,
     picture: '../images/notebook.jpg',
     name: 'Название',
     price: '300',
@@ -10,6 +11,7 @@ const categoryProducts$: Observable<IProduct[]> = of([
     date: 'Сегодня в 15-30',
   },
   {
+    id: 2,
     picture: '../images/notebook.jpg',
     name: 'Название',
     price: '300',
@@ -17,6 +19,7 @@ const categoryProducts$: Observable<IProduct[]> = of([
     date: 'Сегодня в 15-30',
   },
   {
+    id: 3,
     picture: '../images/notebook.jpg',
     name: 'Название',
     price: '300',
@@ -24,6 +27,7 @@ const categoryProducts$: Observable<IProduct[]> = of([
     date: 'Сегодня в 15-30',
   },
   {
+    id: 4,
     picture: '../images/notebook.jpg',
     name: 'Название',
     price: '300',
@@ -31,6 +35,7 @@ const categoryProducts$: Observable<IProduct[]> = of([
     date: 'Сегодня в 15-30',
   },
   {
+    id: 5,
     picture: '../images/notebook.jpg',
     name: 'Название',
     price: '300',
@@ -38,6 +43,7 @@ const categoryProducts$: Observable<IProduct[]> = of([
     date: 'Сегодня в 15-30',
   },
   {
+    id: 6,
     picture: '../images/notebook.jpg',
     name: 'Название',
     price: '300',
@@ -45,6 +51,7 @@ const categoryProducts$: Observable<IProduct[]> = of([
     date: 'Сегодня в 15-30',
   },
   {
+    id: 7,
     picture: '../images/notebook.jpg',
     name: 'Название',
     price: '300',
@@ -52,6 +59,7 @@ const categoryProducts$: Observable<IProduct[]> = of([
     date: 'Сегодня в 15-30',
   },
   {
+    id: 8,
     picture: '../images/notebook.jpg',
     name: 'Название',
     price: '300',
@@ -59,6 +67,7 @@ const categoryProducts$: Observable<IProduct[]> = of([
     date: 'Сегодня в 15-30',
   },
   {
+    id: 9,
     picture: '../images/notebook.jpg',
     name: 'Название',
     price: '300',
@@ -66,6 +75,7 @@ const categoryProducts$: Observable<IProduct[]> = of([
     date: 'Сегодня в 15-30',
   },
   {
+    id: 10,
     picture: '../images/notebook.jpg',
     name: 'Название',
     price: '300',
@@ -73,6 +83,7 @@ const categoryProducts$: Observable<IProduct[]> = of([
     date: 'Сегодня в 15-30',
   },
   {
+    id: 11,
     picture: '../images/notebook.jpg',
     name: 'Название',
     price: '300',
@@ -80,6 +91,7 @@ const categoryProducts$: Observable<IProduct[]> = of([
     date: 'Сегодня в 15-30',
   },
   {
+    id: 12,
     picture: '../images/notebook.jpg',
     name: 'Название',
     price: '300',

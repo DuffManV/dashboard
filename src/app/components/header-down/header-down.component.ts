@@ -11,4 +11,5 @@ import { SearchComponent } from '../search/search.component';
 })
 export class HeaderDownComponent {
   public title: string = 'Доска объявлений';
+  public allCategoriesText: string = 'Все категории';
 }

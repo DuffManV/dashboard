@@ -1,9 +1,21 @@
 .header {
+  &-main-link {
+    color: #fff;
+
+    & h1 {
+      font-size: 2rem;
+    }
+
+    :hover {
+      color: #3b82f6;
+    }
+  }
+
   &-block {
     &--black {
       height: 52px;
       color: #fff;
-      background-color: #1E293B;
+      background-color: #1e293b;
     }
   }
 }
@@ -14,6 +26,31 @@
 
     button {
       height: 100%;
+    }
+  }
+}
+
+::ng-deep {
+  .p-dialog {
+    box-sizing: border-box;
+    padding: 1rem;
+
+    &-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem;
+
+      &-close {
+        float: right;
+      }
+    }
+    &-content {
+      display: inline-grid;
+      width: 100%;
+      padding: 2rem;
+      flex-wrap: wrap;
+      justify-content: space-between;
     }
   }
 }

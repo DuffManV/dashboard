@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 
 const categories$: Observable<ICategory[]> = of([
   {
+    id: 1,
     label: 'Животные',
     children: [
       {
@@ -14,6 +15,7 @@ const categories$: Observable<ICategory[]> = of([
     ],
   },
   {
+    id: 2,
     label: 'Хобби и отдых',
     children: [
       {
@@ -22,6 +24,7 @@ const categories$: Observable<ICategory[]> = of([
     ],
   },
   {
+    id: 3,
     label: 'Хобби и отдых',
     children: [
       {
@@ -30,6 +33,7 @@ const categories$: Observable<ICategory[]> = of([
     ],
   },
   {
+    id: 4,
     label: 'Хобби и отдых',
     children: [
       {
@@ -38,6 +42,7 @@ const categories$: Observable<ICategory[]> = of([
     ],
   },
   {
+    id: 5,
     label: 'Хобби и отдых',
     children: [
       {
@@ -46,6 +51,7 @@ const categories$: Observable<ICategory[]> = of([
     ],
   },
   {
+    id: 6,
     label: 'Хобби и отдых',
     children: [
       {
@@ -54,6 +60,7 @@ const categories$: Observable<ICategory[]> = of([
     ],
   },
   {
+    id: 7,
     label: 'Хобби и отдых',
     children: [
       {
@@ -62,6 +69,7 @@ const categories$: Observable<ICategory[]> = of([
     ],
   },
   {
+    id: 8,
     label: 'Хобби и отдых',
     children: [
       {
@@ -70,6 +78,7 @@ const categories$: Observable<ICategory[]> = of([
     ],
   },
   {
+    id: 9,
     label: 'Хобби и отдых',
     children: [
       {
@@ -78,6 +87,7 @@ const categories$: Observable<ICategory[]> = of([
     ],
   },
   {
+    id: 10,
     label: 'Хобби и отдых',
     children: [
       {

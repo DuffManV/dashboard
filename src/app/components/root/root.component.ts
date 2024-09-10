@@ -3,8 +3,9 @@ import { RouterOutlet } from '@angular/router';
 import { SearchComponent } from '../search/search.component';
 import { HeaderUpComponent } from '../header-up/header-up.component';
 import { MainComponent } from '../../pages/main/main.component';
-import { AllAdvertisementsComponent } from '../../pages/all-advertisements/all-advertisements.component';
+import { SearchResult } from '../../pages/search-result/search-result';
 import { HeaderComponent } from '../header/header.component';
+import { SingleProductComponent } from '../../pages/single-product/single-product.component';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +15,9 @@ import { HeaderComponent } from '../header/header.component';
     SearchComponent,
     HeaderUpComponent,
     MainComponent,
-    AllAdvertisementsComponent,
+    SearchResult,
     HeaderComponent,
+    SingleProductComponent,
   ],
   templateUrl: './root.component.html',
   styleUrl: './root.component.scss',

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, InputSignal } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import IProduct from '../../interfaces/IProduct';
 
@@ -10,11 +10,5 @@ import IProduct from '../../interfaces/IProduct';
   styleUrl: './product-preview.component.scss',
 })
 export class ProductPreviewComponent {
-  @Input() public product: IProduct = {
-    picture: '',
-    name: '',
-    price: '',
-    location: '',
-    date: '',
-  };
+  product: InputSignal<IProduct | undefined> = input<IProduct>();
 }
