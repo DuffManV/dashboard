@@ -1,0 +1,10 @@
+<p-dialog header="Пользователь" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
+  <div>{{phone}}</div>
+  <div>{{rulesTitle}}</div>
+  <ul>
+  @for (rulesTextItem of rulesText; track $index) {
+    <li>{{rulesTextItem}}</li>
+  }
+  </ul>
+</p-dialog>
+

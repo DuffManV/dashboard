@@ -11,8 +11,9 @@ import { Observable, Subscription } from 'rxjs';
 import categoryProducts$ from '../../data/category-products';
 import categories$ from '../../data/categories';
 import { TreeNode } from 'primeng/api';
-import { ActivatedRoute, Router } from '@angular/router';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ActivatedRoute, Params } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-search-result',
@@ -33,13 +34,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class SearchResult implements OnInit, OnDestroy {
   constructor(
-    private router: Router,
     private route: ActivatedRoute,
     private http: HttpClient,
-  ) {
-    this.router.routeReuseStrategy.shouldReuseRoute = (): boolean => false;
-    this.request = this.route.snapshot.paramMap.get('search');
-  }
+  ) {}
+
   public request: string | null = '';
   public readonly showButtonText: string = 'Показать объявления';
   public readonly title: string = 'Объявления по запросу';
@@ -49,19 +47,19 @@ export class SearchResult implements OnInit, OnDestroy {
   public selectedNode: TreeNode | null = null;
   public result: Object = {};
   private subscription: Subscription | undefined;
+  private routeSubscription: Subscription | undefined;
 
   public ngOnInit(): void {
-    const headers: HttpHeaders = new HttpHeaders()
-      .set('Content-Type', 'application/json')
-      .set('Authorization', `Bearer ${12345}`);
+    this.routeSubscription = this.route.params.subscribe(
+      (data: Params) => (this.request = data['search']),
+    );
     this.subscription = this.http
-      .post('http://dzitskiy.ru:5000/advert/search', {
+      .post(`${environment.apiUrl}/advert/search`, {
         search: this.request,
         showNonActive: true,
       })
       .subscribe((data: any): void => {
         this.result = data;
-        console.log(data);
       });
   }
 
@@ -71,5 +69,6 @@ export class SearchResult implements OnInit, OnDestroy {
 
   public ngOnDestroy(): void {
     this.subscription?.unsubscribe();
+    this.routeSubscription?.unsubscribe();
   }
 }

@@ -1,0 +1,33 @@
+<p-dialog header="Регистрация"
+          [modal]="true"
+          [(visible)]="visible"
+          [style]="{ width: '25rem' }"
+          [breakpoints]="{ '300px': '75vw', '575px': '90vw' }" class="justify-content-center">
+  @if (!isRegistered) {
+    <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+      <div>
+        <p-inputMask mask="+9-999-999-99-99" id="phoneReg" [(ngModel)]="login" class="justify-content-end"
+                     placeholder="Номер телефона"
+                     autocomplete="off"/>
+      </div>
+      <div>
+        <input pInputText id="nameReg" [(ngModel)]="name" class="justify-content-end" placeholder="Имя"
+               autocomplete="off"/>
+      </div>
+      <div>
+        <input pInputText id="passwordReg" [(ngModel)]="password" class="justify-content-end" placeholder="Пароль"
+               autocomplete="off"/>
+      </div>
+    </div>
+    <div>
+      <p-button (click)="register()" label="Зарегистрироваться"/>
+    </div>
+  } @else if (isRegistered) {
+    <div>Спасибо за регистрацию.<br>
+      Теперь вы можете авторизоваться.
+      <a class="" (click)="loginComp.showDialog()">Войти</a>
+    </div>
+  }
+
+</p-dialog>
+

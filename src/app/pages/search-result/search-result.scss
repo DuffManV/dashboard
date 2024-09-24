@@ -8,7 +8,7 @@
   }
 }
 
-::ng-deep {
+:host::ng-deep {
   .p-tree-container,
   .p-tree-toggler {
     color: #3B82F6;

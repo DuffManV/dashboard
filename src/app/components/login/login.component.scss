@@ -2,6 +2,7 @@
   width: 100%;
   height: auto;
   color: #fff;
+
   :hover {
     color: #3B82F6;
   }
@@ -11,8 +12,24 @@
   .p-dialog {
     display: flex;
     margin: -15px;
+
+    &-content {
+      justify-content: center;
+    }
+
     &-header {
       font-size: 20px;
     }
+
+  }
+
+  .p-inputtext {
+    display: flex;
+    width: 300px
+  }
+
+  .p-dialog .ui-dialog {
+    overflow: scroll;
+    max-height: 100%;
   }
 }

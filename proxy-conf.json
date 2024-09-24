@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": "http://dzitskiy.ru:5000",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}
