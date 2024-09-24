@@ -1,19 +1,13 @@
-import {
-  Component,
-  OnDestroy,
-  OnInit,
-  signal,
-  WritableSignal,
-} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DialogModule } from 'primeng/dialog';
 import { Button } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 import { InputMaskModule } from 'primeng/inputmask';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { RegisterComponent } from '../register/register.component';
 import { UserService } from '../../services/user.service';
 import { AsyncPipe, JsonPipe } from '@angular/common';
@@ -53,11 +47,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     if (localStorage.getItem('authUser')) {
-      this.userService.getCurrentUser().subscribe((user: ArrayBuffer): void => {
-        this.user = <IUser>(<unknown>user);
-        localStorage.setItem('user', JSON.stringify(this.user));
-        console.log(this.user);
-      });
+      this.getCurrentUser();
     } else {
       this.showEnter = true;
     }
@@ -67,6 +57,16 @@ export class LoginComponent implements OnInit, OnDestroy {
     return this.authService
       .login(this.phone, this.password)
       .subscribe(() => (this.visible = !this.authService.isLoggedIn));
+  }
+
+  public getCurrentUser(): Subscription {
+    return this.userService
+      .getCurrentUser()
+      .subscribe((user: ArrayBuffer): void => {
+        this.user = <IUser>(<unknown>user);
+        localStorage.setItem('user', JSON.stringify(this.user));
+        console.log(this.user);
+      });
   }
 
   public showDialog(): void {
@@ -81,5 +81,6 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   public ngOnDestroy(): void {
     this.login().unsubscribe();
+    this.getCurrentUser().unsubscribe();
   }
 }
