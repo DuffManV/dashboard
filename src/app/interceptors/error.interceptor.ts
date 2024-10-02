@@ -16,7 +16,7 @@ export const errorInterceptor: HttpInterceptorFn = (
   const messageService: MessageService = inject(MessageService);
   return next(req).pipe(
     catchError((err) => {
-      console.log(err?.error?.error);
+      console.log(err);
       messageService.add({
         severity: 'error',
         summary: 'Ошибка',

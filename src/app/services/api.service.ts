@@ -10,7 +10,7 @@ import IDeleteOptions from '../interfaces/IDeleteOptions';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  public get<T>(url: string): Observable<T>;
+  // public get<T>(url: string): Observable<T>;
   public get<T>(url: string, options?: IGetOptions): Observable<T> {
     const opt: IGetOptions = Object.assign({}, options ? options : {});
     return this.http.get<T>(url, opt);

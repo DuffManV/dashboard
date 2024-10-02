@@ -8,7 +8,7 @@
     }
     .product-info {
       border-radius: 0 0 4px 4px;
-      background-color: #dfecff;
+      background-color: #E1E9F0;
       transition: .2s;
       &-name {
         font-size: 24px;
@@ -32,7 +32,7 @@
     &--img {
       display: inline-flex;
       width: 100%;
-      height: 100%;
+      height: 240px;
       object-position: center;
       object-fit: cover;
       border-radius: 4px 4px 0 0;
