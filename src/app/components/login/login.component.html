@@ -3,7 +3,7 @@
   <span class="m-1 login-link">
     <i class="pi pi-user login-icon ms-1 me-2"></i>
     @if (user) {
-      <span class="login-text">{{user.name}}</span>
+      <span class="login-text">{{ user.name }}</span>
     } @else if (showEnter) {
       <span class="login-text" (click)="showDialog()">Войти</span>
     }
@@ -13,22 +13,30 @@
           [modal]="true"
           [(visible)]="visible"
           [style]="{ width: '25rem' }"
-          [breakpoints]="{ '300px': '75vw', '575px': '90vw' }" class="justify-content-center">
-    <div class="d-inline-flex align-items-center gap-3 mb-3">
-        <p-inputMask mask="+9-999-999-99-99" id="phone" [(ngModel)]="phone" class="justify-content-end"
+          [breakpoints]="{ '300px': '75vw', '575px': '90vw' }"
+          class="justify-content-center">
+  <form [formGroup]="loginForm" action="">
+    <div class="d-flex align-items-center mb-3">
+        <p-inputMask mask="+9-(999)-999-99-99" id="phone" [style]="{ width: '300px' }"
+                     formControlName="phone"
+                     class="ng-invalid"
                      placeholder="Номер телефона"
-                     autocomplete="off"/>
+                     autocomplete="off"
+                     unmask="true"/>
     </div>
-    <div class="d-inline-flex align-items-center gap-3 mb-2">
-        <input pInputText id="password" [(ngModel)]="password" class="justify-content-end" placeholder="Пароль"
+    <div class="d-flex align-items-center gap-3 mb-2">
+        <input pInputText id="password" formControlName="password" class="login-password justify-content-end"
+               [minlength]="8" [maxlength]="30"
+               placeholder="Пароль"
                autocomplete="off"/>
     </div>
-  <div class="d-flex  justify-content-end mb-4">
+    <div class="d-flex  justify-content-end mb-4">
     <a (click)="showRegister()">Зарегистрироваться</a>
   </div>
     <div class="d-flex justify-content-center gap-2">
         <p-button label="Войти" (onClick)="login()"/>
     </div>
+  </form>
 </p-dialog>
   <app-register [visible]="isRegisterVisible"></app-register>
 </span>

@@ -1,9 +1,9 @@
 interface IProduct {
   id: number;
-  picture: string;
+  imagesIds: string[];
   name: string;
-  price: string;
+  cost: string;
   location: string;
-  date: string;
+  createdAt: string;
 }
 export default IProduct;

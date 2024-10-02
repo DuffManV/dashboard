@@ -4,14 +4,20 @@ import { Button } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { FormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 import { InputMaskModule } from 'primeng/inputmask';
 import { Subscription } from 'rxjs';
 import { RegisterComponent } from '../register/register.component';
 import { UserService } from '../../services/user.service';
-import { AsyncPipe, JsonPipe } from '@angular/common';
 import IUser from '../../interfaces/IUser';
+import { DropdownModule } from 'primeng/dropdown';
 
 @Component({
   selector: 'app-login',
@@ -24,29 +30,35 @@ import IUser from '../../interfaces/IUser';
     FormsModule,
     InputMaskModule,
     RegisterComponent,
-    AsyncPipe,
-    JsonPipe,
+    ReactiveFormsModule,
+    DropdownModule,
   ],
   providers: [AuthService, ApiService, UserService],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
 export class LoginComponent implements OnInit, OnDestroy {
-  constructor(
-    private authService: AuthService,
-    private userService: UserService,
-  ) {}
-
   public visible: boolean = false;
   public header: string = 'Авторизация';
-  public phone: string = '';
-  public password: string = '';
   public isRegisterVisible: boolean = false;
   public user: IUser | undefined = undefined;
   public showEnter: boolean = false;
+  public errorMessage: string = '';
+  public loginForm: FormGroup;
+
+  constructor(
+    private authService: AuthService,
+    private userService: UserService,
+    private fb: FormBuilder,
+  ) {
+    this.loginForm = this.fb.group({
+      phone: ['', Validators.required],
+      password: ['', Validators.required],
+    });
+  }
 
   public ngOnInit(): void {
-    if (localStorage.getItem('authUser')) {
+    if (localStorage.getItem('token')) {
       this.getCurrentUser();
     } else {
       this.showEnter = true;
@@ -55,18 +67,28 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   public login(): Subscription {
     return this.authService
-      .login(this.phone, this.password)
-      .subscribe(() => (this.visible = !this.authService.isLoggedIn));
+      .login(
+        this.loginForm.controls['phone'].value,
+        this.loginForm.controls['password'].value,
+      )
+      .subscribe({
+        next: () => {
+          this.visible = !this.authService.isLoggedIn;
+          this.getCurrentUser();
+        },
+        error: (resp) => (this.errorMessage = resp?.error?.errors[0]),
+      });
   }
 
   public getCurrentUser(): Subscription {
-    return this.userService
-      .getCurrentUser()
-      .subscribe((user: ArrayBuffer): void => {
-        this.user = <IUser>(<unknown>user);
+    return this.userService.getCurrentUser().subscribe({
+      next: (user: IUser): void => {
+        this.user = <IUser>user;
         localStorage.setItem('user', JSON.stringify(this.user));
         console.log(this.user);
-      });
+      },
+      error: (resp) => (this.errorMessage = resp?.error?.errors[0]),
+    });
   }
 
   public showDialog(): void {

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { SearchComponent } from '../search/search.component';
-import { ButtonComponent } from '../button/button.component';
 import { LoginComponent } from '../login/login.component';
 import { Button } from 'primeng/button';
 import { RouterLink } from '@angular/router';
+import { ButtonComponent } from '../button/button.component';
 
 @Component({
   selector: 'app-header-up',

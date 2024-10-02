@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { ApiService } from './api.service';
+import IUser from '../interfaces/IUser';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +18,7 @@ export class UserService {
     return this.apiService.get(`${environment.apiUrl}/users/${id}`);
   }
 
-  public getCurrentUser(): Observable<ArrayBuffer> {
+  public getCurrentUser(): Observable<IUser> {
     return this.apiService.get(`${environment.apiUrl}/users/current`);
   }
 

@@ -13,7 +13,7 @@ import categories$ from '../../data/categories';
 import { TreeNode } from 'primeng/api';
 import { ActivatedRoute, Params } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
+import { SearchService } from '../../services/search.service';
 
 @Component({
   selector: 'app-search-result',
@@ -35,10 +35,10 @@ import { environment } from '../../../environments/environment';
 export class SearchResult implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
-    private http: HttpClient,
+    private searchService: SearchService,
   ) {}
 
-  public request: string | null = '';
+  public request: string = '';
   public readonly showButtonText: string = 'Показать объявления';
   public readonly title: string = 'Объявления по запросу';
   public readonly priceLabel: string = 'Цена';
@@ -46,21 +46,27 @@ export class SearchResult implements OnInit, OnDestroy {
   public categoryProducts$: Observable<IProduct[]> = categoryProducts$;
   public selectedNode: TreeNode | null = null;
   public result: Object = {};
-  private subscription: Subscription | undefined;
-  private routeSubscription: Subscription | undefined;
+  public searchSubscription: Subscription | null = null;
+  private routeSubscription: Subscription | null = null;
 
   public ngOnInit(): void {
-    this.routeSubscription = this.route.params.subscribe(
-      (data: Params) => (this.request = data['search']),
-    );
-    this.subscription = this.http
-      .post(`${environment.apiUrl}/advert/search`, {
-        search: this.request,
-        showNonActive: true,
-      })
-      .subscribe((data: any): void => {
-        this.result = data;
-      });
+    this.routeSubscription = this.route.params.subscribe((data: Params) => {
+      this.request = data['search'];
+      this.search();
+    });
+  }
+
+  public search(): Subscription | undefined {
+    if (this.request) {
+      this.searchSubscription = this.searchService
+        .search(this.request)
+        .subscribe((data: Object): void => {
+          this.result = data;
+          console.log('SEARCH', data);
+        });
+      return;
+    }
+    return undefined;
   }
 
   public listenEvent(event: TreeNodeSelectEvent): void {
@@ -68,7 +74,7 @@ export class SearchResult implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    this.subscription?.unsubscribe();
     this.routeSubscription?.unsubscribe();
+    this.searchSubscription?.unsubscribe();
   }
 }

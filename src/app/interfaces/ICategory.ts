@@ -1,8 +1,7 @@
 interface ICategory {
-  id: number;
-  label: string;
-  icon?: string;
-  children: ISubCategory[];
+  id: string;
+  name: string;
+  parentId: string;
 }
 
 interface ISubCategory {

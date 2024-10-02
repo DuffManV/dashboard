@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { ISearchAdvert } from '../interfaces/ISearchAdvert';
+import IProduct from '../interfaces/IProduct';
 
 @Injectable({
   providedIn: 'root',
@@ -9,11 +11,13 @@ import { environment } from '../../environments/environment';
 export class AdvertService {
   constructor(private apiService: ApiService) {}
 
-  public getAdverts(): Observable<ArrayBuffer> {
-    return this.apiService.get(`${environment.apiUrl}/advert/search`);
+  public getAdverts(data: ISearchAdvert): Observable<IProduct[]> {
+    return this.apiService.post(`${environment.apiUrl}/advert/search`, {
+      data,
+    });
   }
 
-  public getOneAdvert(id: string): Observable<ArrayBuffer> {
+  public getOneAdvert(id: string): Observable<IProduct> {
     return this.apiService.get(`${environment.apiUrl}/advert/${id}`);
   }
 
@@ -62,11 +66,11 @@ export class AdvertService {
     });
   }
 
-  public deleteAdvert(id: string): Observable<ArrayBuffer> {
+  public deleteAdvert(id: string): Observable<IProduct> {
     return this.apiService.delete(`${environment.apiUrl}/advert/${id}`);
   }
 
-  public getAdvertComments(id: string): Observable<ArrayBuffer> {
+  public getAdvertComments(id: string): Observable<IProduct> {
     return this.apiService.get(`${environment.apiUrl}/advert/${id}/comments`);
   }
 

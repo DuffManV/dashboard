@@ -1,9 +1,8 @@
-import { Injectable, Signal } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { environment } from '../../environments/environment';
 import { catchError, Observable, tap, throwError } from 'rxjs';
 import { Router } from '@angular/router';
-import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root',
@@ -20,28 +19,32 @@ export class AuthService {
     login: string | undefined,
     name: string | undefined,
     password: string | undefined,
-  ): Observable<ArrayBuffer> {
+  ): Observable<string> {
     return this.apiService
-      .post(`${environment.apiUrl}/auth/register`, { login, name, password })
+      .post<string>(`${environment.apiUrl}/auth/register`, {
+        login,
+        name,
+        password,
+      })
       .pipe(
-        tap((data: ArrayBuffer) => console.log(data)),
+        tap((data: string) => console.log(data)),
         catchError((err) => {
-          return throwError(() => err);
+          return throwError(() => err.message);
         }),
       );
   }
 
-  public login(phone: string, password: string): Observable<ArrayBuffer> {
+  public login(phone: string, password: string): Observable<string> {
     return this.apiService
-      .post(`${environment.apiUrl}/auth/login`, {
+      .post<string>(`${environment.apiUrl}/auth/login`, {
         login: phone,
         password,
       })
       .pipe(
-        tap((data: ArrayBuffer): void => {
+        tap((data: string): void => {
           this.isLoggedIn = true;
           localStorage.setItem(
-            'authUser',
+            'token',
             JSON.stringify(data).replaceAll('"', ''),
           );
         }),

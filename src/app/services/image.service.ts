@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { ApiService } from './api.service';
+import IProductImage from '../interfaces/IProductImage';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,7 @@ import { ApiService } from './api.service';
 export class ImageService {
   constructor(private apiService: ApiService) {}
 
-  public getImage(id: string): Observable<ArrayBuffer> {
+  public getImage(id: string | undefined): Observable<unknown> {
     return this.apiService.get(`${environment.apiUrl}/images/${id}`);
   }
 
@@ -23,7 +24,7 @@ export class ImageService {
     });
   }
 
-  public deleteImage(id: string): Observable<ArrayBuffer> {
+  public deleteImage(id: string): Observable<IProductImage> {
     return this.apiService.delete(`${environment.apiUrl}/images/${id}`);
   }
 }

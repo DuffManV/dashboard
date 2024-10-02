@@ -6,6 +6,10 @@
   :hover {
     color: #3B82F6;
   }
+
+  &-password {
+    width: 300px;
+  }
 }
 
 ::ng-deep {
@@ -25,7 +29,7 @@
 
   .p-inputtext {
     display: flex;
-    width: 300px
+    //width: 300px;
   }
 
   .p-dialog .ui-dialog {

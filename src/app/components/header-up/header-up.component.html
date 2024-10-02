@@ -6,10 +6,9 @@
       <h1>{{mainTitle}}</h1>
     </a>
     <span class="align-items-center">
-      <app-login></app-login>
-      <app-button [icon]="newPostIcon" [cssClass]="postButtonCss"
-        >{{newPostTitle}}</app-button
-      >
+      <a routerLink="/profile"><app-login></app-login></a>
+      <a routerLink="/profile/create-advert"><app-button [icon]="newPostIcon" [cssClass]="postButtonCss"
+        >{{newPostTitle}}</app-button></a>
     </span>
   </div>
 </div>

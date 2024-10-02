@@ -38,6 +38,9 @@
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 8px !important;
+  .p-inputgroup {
+    flex-wrap: wrap;
+  }
   &-from,
   &-until {
     height: 40px;

@@ -6,9 +6,10 @@
   @if (!isRegistered) {
     <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
       <div>
-        <p-inputMask mask="+9-999-999-99-99" id="phoneReg" [(ngModel)]="login" class="justify-content-end"
+        <p-inputMask mask="+9-(999)-999-99-99" id="phoneReg" [(ngModel)]="login" class="justify-content-end"
                      placeholder="Номер телефона"
-                     autocomplete="off"/>
+                     autocomplete="off"
+                     unmask="true"/>
       </div>
       <div>
         <input pInputText id="nameReg" [(ngModel)]="name" class="justify-content-end" placeholder="Имя"

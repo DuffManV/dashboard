@@ -1,7 +1,7 @@
 import ICategory from '../interfaces/ICategory';
 import { Observable, of } from 'rxjs';
 
-const categories$: Observable<ICategory[]> = of([
+const categories$: Observable<any[]> = of([
   {
     id: 1,
     label: 'Животные',

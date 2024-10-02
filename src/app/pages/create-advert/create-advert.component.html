@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center mt-4">
+  <div class="col-xl-8 col-md-8 col-sm-12 justify-content-between">
+    <div>
+      <h4 class="mb-3">{{ title }}</h4>
+    </div>
+    <form [formGroup]="createAdvertForm" action="">
+      <div>
+        <div><label for="category">Категория</label></div>
+        <p-dropdown
+          id="category"
+          formControlName="category"
+          [options]="categories"
+          optionLabel="name"
+          placeholder="Выберете категорию" />
+      </div>
+      <div>
+        <label for="name">Название</label>
+        <input type="text" pInputText formControlName="name" id="name" name="name">
+      </div>
+      <div>
+        <label for="description">Описание</label>
+        <textarea
+          rows="5"
+          cols="30"
+          pInputTextarea
+          formControlName="description" id="description" name="description"
+        >
+    </textarea>
+      </div>
+      <div>
+        <label for="address">Адрес</label>
+        <input type="text" pInputText formControlName="address" id="address" name="address">
+      </div>
+      <div>
+        <label for="name">Изображения</label>
+        <input type="text" formControlName="name" id="" name="name">
+        <app-button>Добавить</app-button>
+      </div>
+      <div>
+        <label for="price">Цена</label>
+        <input type="text" pInputText formControlName="price" id="price" name="price">
+      </div>
+    </form>
+  </div>
+
+</div>

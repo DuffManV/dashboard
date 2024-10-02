@@ -1,9 +1,10 @@
-import { Component, Signal } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AsyncPipe, NgForOf } from '@angular/common';
 import { ProductPreviewComponent } from '../../components/product-preview/product-preview.component';
 import IProduct from '../../interfaces/IProduct';
-import products$ from '../../data/products';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { Observable, of } from 'rxjs';
+import { AdvertService } from '../../services/advert.service';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-main',
@@ -11,9 +12,14 @@ import { toSignal } from '@angular/core/rxjs-interop';
   imports: [NgForOf, ProductPreviewComponent, AsyncPipe],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',
+  providers: [AdvertService, ApiService],
 })
-export class MainComponent {
-  public products: Signal<IProduct[] | undefined> = toSignal<
-    IProduct[] | undefined
-  >(products$);
+export class MainComponent implements OnInit {
+  constructor(private advertService: AdvertService) {}
+
+  public products$: Observable<IProduct[]> | undefined = undefined;
+
+  public ngOnInit(): void {
+    this.products$ = this.advertService.getAdverts({});
+  }
 }

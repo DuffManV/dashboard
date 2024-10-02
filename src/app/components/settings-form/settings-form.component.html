@@ -1,0 +1,19 @@
+<form [formGroup]="settingsForm">
+  <div class="d-inline-flex">
+        <span>
+           <label for="name">Имя</label>
+        <input type="text" pInputText formControlName="name" id="name" name="name">
+        </span>
+    <span>
+          <label for="phone">Номер телефона</label>
+        <input type="text" pInputText formControlName="phone" id="phone" name="phone">
+       </span>
+  </div>
+  <div>
+    <label for="address">Адрес</label>
+    <input type="text" pInputText formControlName="address" id="address" name="address">
+  </div>
+  <div>
+    <app-button (click)="saveSettings()">Сохранить</app-button>
+  </div>
+</form>

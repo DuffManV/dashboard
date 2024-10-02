@@ -11,8 +11,8 @@
                   [value]="categories$ | async"/>
         </div>
         <h5 class="price mt-3 mb-3">{{priceLabel}}</h5>
-        <p-inputGroup>
-          <input type="text" pInputText class="price-from me-2" placeholder="Цена от"/>
+        <p-inputGroup class="price d-flex">
+          <input type="text" pInputText class="price-from mb-2" placeholder="Цена от"/>
           <input type="text" pInputText class="price-until" placeholder="Цена до"/>
         </p-inputGroup>
         <p-button class="d-flex mt-3 justify-content-center" label="{{showButtonText}}"></p-button>

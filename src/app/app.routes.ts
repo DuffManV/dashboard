@@ -1,16 +1,48 @@
 import { Routes } from '@angular/router';
 import { MainComponent } from './pages/main/main.component';
-import { SearchResult } from './pages/search-result/search-result';
-import { AllCategoriesComponent } from './pages/all-categories/all-categories.component';
-import { SingleProductComponent } from './pages/single-product/single-product.component';
 
 export const routes: Routes = [
   { path: '', component: MainComponent },
-  { path: 'search/:search', component: SearchResult },
+  {
+    path: 'search/:search',
+    loadComponent: () =>
+      import('./pages/search-result/search-result').then((c) => c.SearchResult),
+  },
   {
     path: 'categories',
-    component: AllCategoriesComponent,
+    loadComponent: () =>
+      import('./pages/all-categories/all-categories.component').then(
+        (c) => c.AllCategoriesComponent,
+      ),
   },
-  { path: 'product', component: SingleProductComponent },
+  {
+    path: 'product/:productId',
+    loadComponent: () =>
+      import('./pages/single-product/single-product.component').then(
+        (c) => c.SingleProductComponent,
+      ),
+  },
+  {
+    path: 'profile',
+    loadComponent: () =>
+      import('./pages/profile/profile.component').then(
+        (c) => c.ProfileComponent,
+      ),
+    // loadChildren: () => import('./routes/profile.routes').then((r) => r.routes),
+  },
+  {
+    path: 'profile/create-advert',
+    loadComponent: () =>
+      import('./pages/create-advert/create-advert.component').then(
+        (c) => c.CreateAdvertComponent,
+      ),
+  },
+  {
+    path: 'profile/my-adverts',
+    loadComponent: () =>
+      import('./pages/my-advertisement/my-advertisement.component').then(
+        (c) => c.MyAdvertisementComponent,
+      ),
+  },
   { path: '**', redirectTo: '/' },
 ];

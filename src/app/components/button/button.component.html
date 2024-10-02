@@ -1,6 +1,8 @@
 <p-button [ngClass]="['button d-inline-flex', cssClass]" outlined="{{ outlined }}">
   <ng-content></ng-content>
-  <span class="button-icon--wrapper">
+  @if (icon) {
+    <span class="button-icon--wrapper">
     <i class="{{ icon }}"></i>
   </span>
+  }
 </p-button>
