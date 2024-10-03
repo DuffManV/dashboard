@@ -1,4 +1,11 @@
 .product {
+  .product-info {
+    &-price,
+    &-location,
+    &-date {
+      color: #1E293B;
+    }
+  }
   &:hover {
     //position: absolute;
     //zoom: 1.1;

@@ -2,7 +2,6 @@
   <a class="product-picture-link" [routerLink]="['product',product()?.id]">
     <img class="product-picture-link--img" src="{{image}}"
          alt="picture">
-
     <div class="product-info">
       <h4 class="mb-0">
         {{ product()?.name }}
@@ -14,5 +13,4 @@
       <small class="product-info-date">{{ product()?.createdAt | date }}</small>
     </div>
   </a>
-
 </div>

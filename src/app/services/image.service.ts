@@ -10,10 +10,8 @@ import IProductImage from '../interfaces/IProductImage';
 export class ImageService {
   constructor(private apiService: ApiService) {}
 
-  public getImage(id: string | undefined): Observable<string> {
-    return this.apiService.get(`${environment.apiUrl}/images/${id}`, {
-      responseType: 'json',
-    });
+  public getImage(id: string | undefined): string {
+    return `${environment.apiUrl}/images/${id}`;
   }
 
   public createImage(
