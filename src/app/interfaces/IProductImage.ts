@@ -1,5 +1,5 @@
 interface IProductImage {
-  itemImageSrc: string;
+  imageSrc: string;
   thumbnailImageSrc: string;
   alt: string;
   title: string;

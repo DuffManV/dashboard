@@ -2,20 +2,8 @@
   <div
     class="product-image col-xl-8 col-md-8 col-sm-12 justify-content-between"
   >
-    <p-galleria
-      [value]="images()"
-      [responsiveOptions]="responsiveOptions"
-      [containerStyle]="{ 'max-width': '60%' }"
-      [numVisible]="5"
-    >
-      <ng-template pTemplate="item" let-item>
-        <img [src]="item.itemImageSrc" alt="" />
-      </ng-template>
-      <ng-template pTemplate="thumbnail" let-item>
-        <div class="grid grid-nogutter justify-content-center">
-          <img [src]="item.thumbnailImageSrc" alt="" />
-        </div>
-      </ng-template>
-    </p-galleria>
+    <pre>
+    </pre>
+    <app-image-card [images]="images$ | async"></app-image-card>
   </div>
 </div>
