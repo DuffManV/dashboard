@@ -1,6 +1,4 @@
-interface IMenu {
+export default interface IMenu {
   id: number;
   label: string;
 }
-
-export default IMenu;

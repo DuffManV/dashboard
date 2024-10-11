@@ -5,14 +5,6 @@ import IProduct from '../../interfaces/IProduct';
 import { Observable, of } from 'rxjs';
 import { AdvertService } from '../../services/advert.service';
 import { ApiService } from '../../services/api.service';
-import { PaginatorModule, PaginatorState } from 'primeng/paginator';
-
-interface PageEvent {
-  first: number;
-  rows: number;
-  page: number;
-  pageCount: number;
-}
 
 @Component({
   selector: 'app-main',

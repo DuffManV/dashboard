@@ -1,6 +1,6 @@
 import { HttpContext, HttpHeaders, HttpParams } from '@angular/common/http';
 
-interface IPutOptions {
+export default interface IPutOptions {
   headers?:
     | HttpHeaders
     | {
@@ -21,5 +21,3 @@ interface IPutOptions {
   responseType: 'arraybuffer';
   withCredentials?: boolean;
 }
-
-export default IPutOptions;

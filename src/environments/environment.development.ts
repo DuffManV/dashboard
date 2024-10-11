@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
   apiUrl: '/api',
-  outerApiUrl: 'http://dzitskiy.ru:5000',
   photoPlaceholder: '/images/no_photo.webp',
+  empty_id: '00000000-0000-0000-0000-000000000000',
 };

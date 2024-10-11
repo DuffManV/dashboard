@@ -87,7 +87,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         localStorage.setItem('user', JSON.stringify(this.user));
         console.log(this.user);
       },
-      error: (resp) => {
+      error: (resp): void => {
         console.log(resp);
         if (resp?.error?.errors[0] === 0) {
         }

@@ -20,7 +20,7 @@ export class ImageService {
       ids.forEach((ids: string): void => {
         const imageSrc: string = this.getImage(ids);
         const imageData: IProductImage = {
-          imageSrc: imageSrc,
+          itemImgSrc: imageSrc,
           thumbnailImageSrc: imageSrc,
           alt: 'Картинка',
           title: 'Картинка объявления',
@@ -29,7 +29,7 @@ export class ImageService {
       });
     } else {
       images.push({
-        imageSrc: environment.photoPlaceholder,
+        itemImgSrc: environment.photoPlaceholder,
         thumbnailImageSrc: environment.photoPlaceholder,
         alt: 'Нет изображения',
         title: 'Нет изображения',

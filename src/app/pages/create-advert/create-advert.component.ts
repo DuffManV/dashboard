@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import {
+  FormArray,
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
@@ -9,13 +10,12 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ButtonComponent } from '../../components/button/button.component';
 import { DropdownModule } from 'primeng/dropdown';
-import Categories from '../../data/categories';
 import { CategoryService } from '../../services/category.service';
-import { Observable, of } from 'rxjs';
+import { tap } from 'rxjs';
 import ICategory from '../../interfaces/ICategory';
 import { AsyncPipe } from '@angular/common';
-import { AuthService } from '../../services/auth.service';
 import { ApiService } from '../../services/api.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-create-advert',
@@ -33,36 +33,53 @@ import { ApiService } from '../../services/api.service';
   styleUrl: './create-advert.component.scss',
 })
 export class CreateAdvertComponent implements OnInit {
-  constructor(
-    private fb: FormBuilder,
-    private categoryService: CategoryService,
-  ) {
-    this.createAdvertForm = fb.group({
-      category: ['', Validators.required],
-      name: ['', Validators.required],
-      description: [''],
-      address: ['', Validators.required],
-      images: [''],
-      price: [''],
-    });
-  }
+  private fb: FormBuilder = inject(FormBuilder);
+  private categoryService: CategoryService = inject(CategoryService);
 
   public title: string = 'Новое объявление';
-  public createAdvertForm: FormGroup<any>;
-  public categories: { name: string; code: string }[] = [];
+  public categories: ICategory[] = [];
   public selectedCategory: string = '';
+  public get categoriesForm(): any[] {
+    return (this.form.get('categories') as FormArray).controls;
+  }
+
+  public form: FormGroup<any> = this.fb.group({
+    name: ['', Validators.required],
+    description: [''],
+    address: ['', Validators.required],
+    images: [''],
+    price: [''],
+    categories: this.fb.array([
+      this.fb.group({
+        category: [null, Validators.required],
+      }),
+    ]),
+  });
 
   public ngOnInit(): void {
-    this.categoryService
-      .getCategories()
-      .subscribe((categories: ICategory[]) => {
-        this.categories = categories.map((category) => {
-          return {
-            name: category.name,
-            code: category.id,
-          };
-        });
-        console.log(this.categories);
+    this.categoryService.getCategories().subscribe((res) => {
+      this.categories = res;
+    });
+    console.warn();
+  }
+
+  public getOptions(id: string): any {
+    // if (!id) {
+    //   id = environment.empty_id;
+    // }
+    console.log(this.categoriesForm[0].getRawValue());
+    return this.categories?.filter(
+      (category: ICategory) => category.parentId === id,
+    );
+  }
+
+  public addControl(category: any): void {
+    if (this.getOptions(category?.category?.id).length) {
+      console.warn(this.getOptions(category?.category?.id));
+      const item = this.fb.group({
+        category: [null, Validators.required],
       });
+      (<FormArray>this.form?.get('categories'))?.push(item);
+    }
   }
 }

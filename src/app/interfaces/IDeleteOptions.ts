@@ -1,6 +1,6 @@
 import { HttpContext, HttpHeaders, HttpParams } from '@angular/common/http';
 
-interface IDeleteOptions {
+export default interface IDeleteOptions {
   headers?:
     | HttpHeaders
     | {
@@ -22,5 +22,3 @@ interface IDeleteOptions {
   withCredentials?: boolean;
   body?: any | null;
 }
-
-export default IDeleteOptions;

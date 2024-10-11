@@ -53,7 +53,7 @@ export class RegisterComponent implements OnDestroy {
       });
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     this.register().unsubscribe();
   }
 }

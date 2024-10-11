@@ -1,0 +1,29 @@
+.gallery {
+  text-align: center;
+}
+.main-image {
+  display: flex;
+  object-fit: cover;
+  object-position: center;
+  justify-content: start;
+  height: 512px;
+  width: 100%;
+}
+.thumbnails {
+  display: flex;
+  justify-content: start;
+  margin-top: 10px;
+}
+.thumbnail {
+  margin: 0 5px;
+  cursor: pointer;
+  padding: 3px;
+  &:hover {
+    padding: 0;
+    border: 3px solid #000;
+  }
+}
+.thumbnail img {
+  width: 120px;
+  height: 120px;
+}

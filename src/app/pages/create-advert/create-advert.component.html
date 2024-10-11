@@ -3,15 +3,22 @@
     <div>
       <h4 class="mb-3">{{ title }}</h4>
     </div>
-    <form [formGroup]="createAdvertForm" action="">
+    <form [formGroup]="form" action="">
       <div>
-        <div><label for="category">Категория</label></div>
-        <p-dropdown
-          id="category"
-          formControlName="category"
-          [options]="categories"
-          optionLabel="name"
-          placeholder="Выберете категорию" />
+        <div><label for="categories">Категория</label></div>
+        <div formArrayName="categories" id="categories"></div>
+        @for (category of categoriesForm; track category; let i = $index) {
+          <div [formGroupName]="i">
+            <p-dropdown
+              formControlName="category"
+              [options]="getOptions(categoriesForm[i]?.getRawValue()?.category?.id)"
+              optionLabel="name"
+              placeholder="Выберете категорию"
+              (onChange)="addControl(category.getRawValue())"
+            />
+          </div>
+        }
+
       </div>
       <div>
         <label for="name">Название</label>

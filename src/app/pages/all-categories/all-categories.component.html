@@ -1,1 +1,8 @@
-<p>all-categories works!</p>
+<ul>
+  <li *ngFor="let node of treeNodes">
+    {{ node.name }}
+    <div *ngIf="node.children && node.children.length > 0">
+      <app-all-categories [treeNodes]="node.children"></app-all-categories>
+    </div>
+  </li>
+</ul>

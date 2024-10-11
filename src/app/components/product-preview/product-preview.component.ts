@@ -1,4 +1,12 @@
-import { Component, input, InputSignal, OnInit } from '@angular/core';
+import {
+  Component,
+  effect,
+  input,
+  InputSignal,
+  OnInit,
+  signal,
+  WritableSignal,
+} from '@angular/core';
 import { DatePipe, NgOptimizedImage } from '@angular/common';
 import IProduct from '../../interfaces/IProduct';
 import { RouterLink } from '@angular/router';
@@ -15,17 +23,27 @@ import { environment } from '../../../environments/environment';
   providers: [ImageService, ApiService],
 })
 export class ProductPreviewComponent implements OnInit {
-  constructor(private imageService: ImageService) {}
   public product: InputSignal<IProduct | undefined> = input<
     IProduct | undefined
   >();
-  public image: string | undefined = undefined;
+  constructor(private imageService: ImageService) {
+    effect(
+      () => {
+        if (this.product()?.imagesIds[0] !== undefined) {
+          this.image.set(
+            this.imageService.getImage(this.product()?.imagesIds[0]),
+          );
+        } else {
+          this.image.set(environment.photoPlaceholder);
+        }
+      },
+      { allowSignalWrites: true },
+    );
+  }
+
+  public image: WritableSignal<string> = signal('');
 
   public ngOnInit(): void {
-    if (this.product()?.imagesIds[0] !== undefined) {
-      this.image = this.imageService.getImage(this.product()?.imagesIds[0]);
-    } else {
-      this.image = environment.photoPlaceholder;
-    }
+    console.log('product', this.product());
   }
 }

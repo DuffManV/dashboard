@@ -2,7 +2,6 @@ import { Component, Signal } from '@angular/core';
 import { ProductPreviewComponent } from '../../components/product-preview/product-preview.component';
 import IProduct from '../../interfaces/IProduct';
 import { toSignal } from '@angular/core/rxjs-interop';
-import products$ from '../../data/products';
 
 @Component({
   selector: 'app-my-advertisement',
@@ -12,7 +11,7 @@ import products$ from '../../data/products';
   styleUrl: './my-advertisement.component.scss',
 })
 export class MyAdvertisementComponent {
-  public products: Signal<IProduct[] | undefined> = toSignal<
-    IProduct[] | undefined
-  >(products$);
+  // public products: Signal<IProduct[] | undefined> = toSignal<
+  //   IProduct[] | undefined
+  // >(products$);
 }

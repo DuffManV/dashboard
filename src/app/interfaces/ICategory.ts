@@ -1,12 +1,7 @@
-interface ICategory {
+export default interface ICategory {
   id: string;
-  name: string;
+  label?: string;
   parentId: string;
+  children?: ICategory[];
+  name: string;
 }
-
-interface ISubCategory {
-  label: string;
-  icon?: string;
-}
-
-export default ICategory;

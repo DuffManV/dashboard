@@ -1,6 +1,6 @@
 import { HttpContext, HttpHeaders, HttpParams } from '@angular/common/http';
 
-interface IPostOptions {
+export default interface IPostOptions {
   headers?:
     | HttpHeaders
     | {
@@ -24,5 +24,3 @@ interface IPostOptions {
     includeHeaders?: string[];
   };
 }
-
-export default IPostOptions;

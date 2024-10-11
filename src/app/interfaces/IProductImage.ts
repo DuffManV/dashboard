@@ -1,8 +1,6 @@
-interface IProductImage {
-  imageSrc: string;
+export default interface IProductImage {
+  itemImgSrc: string;
   thumbnailImageSrc: string;
   alt: string;
   title: string;
 }
-
-export default IProductImage;

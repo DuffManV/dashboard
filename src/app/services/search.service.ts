@@ -9,10 +9,14 @@ import { Observable } from 'rxjs';
 export class SearchService {
   constructor(private http: HttpClient) {}
 
-  public search(searchString: string): Observable<Object> {
-    return this.http.post(`${environment.apiUrl}/advert/search`, {
+  public search(
+    searchString: string,
+    category?: string | null,
+  ): Observable<[]> {
+    return this.http.post<[]>(`${environment.apiUrl}/advert/search`, {
       search: searchString,
       showNonActive: true,
+      category: category,
     });
   }
 }

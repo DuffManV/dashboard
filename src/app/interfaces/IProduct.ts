@@ -1,4 +1,4 @@
-interface IProduct {
+export default interface IProduct {
   id: number;
   imagesIds: string[];
   name: string;
@@ -6,4 +6,3 @@ interface IProduct {
   location: string;
   createdAt: string;
 }
-export default IProduct;

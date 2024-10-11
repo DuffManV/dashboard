@@ -1,6 +1,6 @@
 import { HttpContext, HttpHeaders, HttpParams } from '@angular/common/http';
 
-interface IGetOptions {
+export default interface IGetOptions {
   headers?:
     | HttpHeaders
     | {
@@ -26,5 +26,3 @@ interface IGetOptions {
       }
     | boolean;
 }
-
-export default IGetOptions;

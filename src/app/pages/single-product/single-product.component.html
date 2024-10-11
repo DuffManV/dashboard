@@ -1,9 +1,7 @@
-<div class="product row mt-4">
+<div class="d-flex align-items-center mt-4">
   <div
-    class="product-image col-xl-8 col-md-8 col-sm-12 justify-content-between"
+    class="product-image d-flex col-xl-8 col-md-8 col-sm-12 justify-content-between"
   >
-    <pre>
-    </pre>
-    <app-image-card [images]="images$ | async"></app-image-card>
+    <app-gallery [images]="imageIds()"></app-gallery>
   </div>
 </div>
