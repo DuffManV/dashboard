@@ -21,26 +21,8 @@ export class AdvertService {
     return this.apiService.get(`${environment.apiUrl}/advert/${id}`);
   }
 
-  public createAdvert(
-    name: string,
-    description: string,
-    cost: string,
-    images: Array<string>,
-    email: string,
-    phone: string,
-    location: string,
-    categoryId: string,
-  ): Observable<ArrayBuffer> {
-    return this.apiService.post(`${environment.apiUrl}/advert`, {
-      name,
-      description,
-      cost,
-      images,
-      email,
-      phone,
-      location,
-      categoryId,
-    });
+  public createAdvert(model: FormData): Observable<ArrayBuffer> {
+    return this.apiService.post(`${environment.apiUrl}/advert`, model);
   }
 
   public updateAdvert(

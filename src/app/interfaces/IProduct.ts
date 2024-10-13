@@ -1,8 +1,17 @@
+import IUser from './IUser';
+import ICategory from './ICategory';
+
 export default interface IProduct {
-  id: number;
-  imagesIds: string[];
+  id: string;
+  user: IUser;
   name: string;
-  cost: string;
+  description: string;
+  isActive: true;
+  imagesIds: string[];
+  cost: number;
+  email: string;
+  phone: string;
   location: string;
-  createdAt: string;
+  created: string;
+  category: ICategory;
 }

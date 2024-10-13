@@ -5,7 +5,7 @@ import { HeaderUpComponent } from '../header-up/header-up.component';
 import { MainComponent } from '../../pages/main/main.component';
 import { SearchResult } from '../../pages/search-result/search-result';
 import { HeaderComponent } from '../header/header.component';
-import { SingleProductComponent } from '../../pages/single-product/single-product.component';
+import { SingleAdvertComponent } from '../../pages/single-advert/single-advert.component';
 import { ProfileComponent } from '../../pages/profile/profile.component';
 import { CreateAdvertComponent } from '../../pages/create-advert/create-advert.component';
 
@@ -19,7 +19,7 @@ import { CreateAdvertComponent } from '../../pages/create-advert/create-advert.c
     MainComponent,
     SearchResult,
     HeaderComponent,
-    SingleProductComponent,
+    SingleAdvertComponent,
   ],
   templateUrl: './root.component.html',
   styleUrl: './root.component.scss',

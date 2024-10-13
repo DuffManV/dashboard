@@ -1,5 +1,4 @@
 import {
-  HttpErrorResponse,
   HttpEvent,
   HttpHandlerFn,
   HttpInterceptorFn,
@@ -10,17 +9,18 @@ import { inject } from '@angular/core';
 import { MessageService } from 'primeng/api';
 
 export const errorInterceptor: HttpInterceptorFn = (
-  req: HttpRequest<unknown>,
+  req: HttpRequest<any>,
   next: HttpHandlerFn,
-): Observable<HttpEvent<unknown>> => {
+): Observable<HttpEvent<any>> => {
   const messageService: MessageService = inject(MessageService);
   return next(req).pipe(
     catchError((err) => {
-      console.log(err);
+      const errors = Object.values(err.error.errors).join(' ');
+      console.log(errors);
       messageService.add({
-        severity: 'error',
+        severity: 'warn',
         summary: 'Ошибка',
-        detail: err?.error?.error.message,
+        detail: errors,
       });
       return throwError(() => err);
     }),

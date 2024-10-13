@@ -3,35 +3,36 @@ import {
   effect,
   input,
   InputSignal,
-  OnInit,
   signal,
   WritableSignal,
 } from '@angular/core';
 import { ImageService } from '../../services/image.service';
 import { ApiService } from '../../services/api.service';
-import IProductImage from '../../interfaces/IProductImage';
+import IAdvertImage from '../../interfaces/IAdvertImage';
 import { GalleriaModule } from 'primeng/galleria';
 import { environment } from '../../../environments/environment';
+import { ImageModule } from 'primeng/image';
+import { SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrl: './gallery.component.scss',
   providers: [ImageService, ApiService],
-  imports: [GalleriaModule],
+  imports: [GalleriaModule, ImageModule],
   standalone: true,
 })
 export class GalleryComponent {
   public images: InputSignal<string[] | undefined> = input();
-  public imagesData: IProductImage[] | undefined = [];
-  public currentImage: WritableSignal<string | null> = signal<string | null>(
-    null,
-  );
+  public imagesData: IAdvertImage[] | undefined = [];
+  public currentImage: WritableSignal<string | undefined | SafeUrl> = signal<
+    string | undefined
+  >(undefined);
   constructor(private imageService: ImageService) {
     effect(
       () => {
-        this.imagesData = this.images()?.map((image) => {
-          const itemImgSrc = this.imageService.getImage(image);
+        this.imagesData = this.images()?.map((image: string) => {
+          const itemImgSrc: string = this.imageService.getImage(image);
           return {
             itemImgSrc: itemImgSrc,
             thumbnailImageSrc: itemImgSrc,

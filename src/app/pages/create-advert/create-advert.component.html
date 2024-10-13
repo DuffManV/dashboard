@@ -6,23 +6,24 @@
     <form [formGroup]="form" action="">
       <div>
         <div><label for="categories">Категория</label></div>
-        <div formArrayName="categories" id="categories"></div>
-        @for (category of categoriesForm; track category; let i = $index) {
-          <div [formGroupName]="i">
-            <p-dropdown
-              formControlName="category"
-              [options]="getOptions(categoriesForm[i]?.getRawValue()?.category?.id)"
-              optionLabel="name"
-              placeholder="Выберете категорию"
-              (onChange)="addControl(category.getRawValue())"
-            />
-          </div>
-        }
-
+        <div formArrayName="categories" id="categories">
+          @for (category of categoriesForm; track category; let i = $index) {
+            <div [formGroupName]="i">
+              <p-dropdown
+                formControlName="category"
+                [options]="getOptions(categoriesForm[i-1]?.getRawValue()?.category?.id)"
+                optionLabel="name"
+                placeholder="Выберете категорию"
+                class="category-dropdown"
+                (onChange)="addControl(category.getRawValue())"
+              />
+            </div>
+          }
+        </div>
       </div>
       <div>
         <label for="name">Название</label>
-        <input type="text" pInputText formControlName="name" id="name" name="name">
+        <input type="text" pInputText formControlName="name" minlength="4" maxlength="64" id="name" name="name">
       </div>
       <div>
         <label for="description">Описание</label>
@@ -35,19 +36,62 @@
     </textarea>
       </div>
       <div>
-        <label for="address">Адрес</label>
-        <input type="text" pInputText formControlName="address" id="address" name="address">
+        <label for="location">Адрес</label>
+        <div>
+          <p-autoComplete
+            id="location"
+            formControlName="location"
+            [suggestions]="filteredLocation"
+            (completeMethod)="getAddress($event)"
+            optionLabel="name"
+            minLength="3"
+          />
+        </div>
+      </div>
+      <div>
+        <label for="email">email</label>
+        <input type="text" pInputText formControlName="email" id="email" name="email">
+      </div>
+      <div>
+        <label for="phone">Номер телефона</label>
+        <p-inputMask mask="+9(999)999-99-99" id="phone" [style]="{ width: '300px' }"
+                     formControlName="phone"
+                     placeholder="Номер телефона"
+                     autocomplete="off"
+        />
       </div>
       <div>
         <label for="name">Изображения</label>
-        <input type="text" formControlName="name" id="" name="name">
-        <app-button>Добавить</app-button>
+        <p-fileUpload
+          name="uploadImages[]"
+          (onSelect)="onSelect($event)"
+          [multiple]="true"
+          chooseLabel="Выберите изображение"
+          showUploadButton="false"
+          cancelLabel="Отмена"
+          accept="image/*"
+          customUpload="true"
+          maxFileSize="1000000">
+          <ng-template pTemplate="content">
+            @if (uploadedFiles.length) {
+              <ul>
+                @for (file of uploadedFiles; track file; ) {
+                  <li>
+                    {{ file.name }} - {{ file.size }} bytes
+                  </li>
+                }
+              </ul>
+            }
+          </ng-template>
+        </p-fileUpload>
       </div>
       <div>
-        <label for="price">Цена</label>
-        <input type="text" pInputText formControlName="price" id="price" name="price">
+        <label for="cost">Цена</label>
+        <input type="text" pInputText formControlName="cost" id="cost" name="cost">
       </div>
     </form>
+
+    <app-button (click)="createAdvert()">Создать</app-button>
   </div>
 
 </div>

@@ -1,8 +1,6 @@
-<ul>
-  <li *ngFor="let node of treeNodes">
-    {{ node.name }}
-    <div *ngIf="node.children && node.children.length > 0">
-      <app-all-categories [treeNodes]="node.children"></app-all-categories>
-    </div>
-  </li>
-</ul>
+<div class="card flex justify-content-center">
+  @for (node of fistLevelCategories; track node){
+    <div (click)="handleClickCategory(node)">{{node.name}}</div>
+  }
+  <app-all-second-level-categories [category]="category" [categories]="secondLevelCategories"></app-all-second-level-categories>
+</div>

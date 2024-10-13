@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { ApiService } from './api.service';
-import IProductImage from '../interfaces/IProductImage';
+import IAdvertImage from '../interfaces/IAdvertImage';
 
 @Injectable({
   providedIn: 'root',
@@ -14,12 +14,12 @@ export class ImageService {
     return `${environment.apiUrl}/images/${id}`;
   }
 
-  public getImages(ids: string[] | undefined): Observable<IProductImage[]> {
-    const images: IProductImage[] = [];
+  public getImages(ids: string[] | undefined): Observable<IAdvertImage[]> {
+    const images: IAdvertImage[] = [];
     if (ids && ids.length > 0) {
       ids.forEach((ids: string): void => {
         const imageSrc: string = this.getImage(ids);
-        const imageData: IProductImage = {
+        const imageData: IAdvertImage = {
           itemImgSrc: imageSrc,
           thumbnailImageSrc: imageSrc,
           alt: 'Картинка',
@@ -48,7 +48,7 @@ export class ImageService {
     });
   }
 
-  public deleteImage(id: string): Observable<IProductImage> {
+  public deleteImage(id: string): Observable<IAdvertImage> {
     return this.apiService.delete(`${environment.apiUrl}/images/${id}`);
   }
 }

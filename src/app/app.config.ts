@@ -18,9 +18,9 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideHttpClient(),
     provideAnimations(),
-    DialogService,
-    MessageService,
     provideHttpClient(withInterceptors([authInterceptor, errorInterceptor])),
     [{ provide: LOCALE_ID, useValue: 'ru-RU' }],
+    DialogService,
+    MessageService,
   ],
 };

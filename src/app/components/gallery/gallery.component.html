@@ -1,5 +1,15 @@
 <div class="gallery">
-  <img [src]="currentImage()" [alt]="currentImage()" class="main-image">
+
+  <p-image
+    [src]=currentImage()
+    [preview]="true"
+    alt="Image"
+    width="700px"
+    height="500px"
+    imageClass= "main-image"
+  >
+  </p-image>
+<!--  <img [src]="currentImage()" [alt]="currentImage()" class="main-image">-->
   <div class="thumbnails">
     @for ( image of imagesData; track $index) {
       <div  class="thumbnail" (mouseenter)="selectImage(image.itemImgSrc)">

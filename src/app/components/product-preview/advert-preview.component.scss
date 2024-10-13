@@ -7,8 +7,6 @@
     }
   }
   &:hover {
-    //position: absolute;
-    //zoom: 1.1;
     cursor: pointer;
     .product-picture-link {
       transition: .2s;
@@ -22,12 +20,6 @@
       }
       &-price {
         color: #1E293B;
-      }
-      &-location {
-
-      }
-      &-date {
-
       }
     }
   }

@@ -1,0 +1,14 @@
+.adv {
+  display: flex;
+  align-items: center;
+  width: 170px;
+  height: 170px;
+  &-img {
+    img {
+      width: 170px;
+      height: 170px;
+      object-position: center;
+      object-fit: cover;
+    }
+  }
+}

@@ -1,18 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { Component } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../../services/user.service';
-import IUser from '../../interfaces/IUser';
 import { ButtonComponent } from '../../components/button/button.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ApiService } from '../../services/api.service';
 import { SettingsFormComponent } from '../../components/settings-form/settings-form.component';
-import { ChangePasswordFormComponent } from '../../components/change-password-form/change-password-form.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -23,7 +17,7 @@ import { ChangePasswordFormComponent } from '../../components/change-password-fo
     InputTextareaModule,
     ReactiveFormsModule,
     SettingsFormComponent,
-    ChangePasswordFormComponent,
+    RouterOutlet,
   ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',

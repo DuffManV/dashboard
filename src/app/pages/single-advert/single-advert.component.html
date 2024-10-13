@@ -1,0 +1,13 @@
+<div class="d-flex col-xl-6 col-md-8">
+    <div
+      class="product-image col-xl-4 col-md-6 justify-content-center"
+    >
+      <app-gallery [images]="imageIds"></app-gallery>
+    </div>
+    <div class="col-md-6 col-xl-4">
+      <p-button icon="pi pi-phone" iconPos="left" label="Показать номер телефона"
+                (click)="showPhoneFn(true)"></p-button>
+    </div>
+  </div>
+<app-seller-phone [phone]="advert?.phone" [showPhone]="showPhone"
+                  (closedDialog)="showPhoneFn(false)"></app-seller-phone>

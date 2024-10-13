@@ -16,10 +16,10 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'product/:productId',
+    path: 'advert/:advertId',
     loadComponent: () =>
-      import('./pages/single-product/single-product.component').then(
-        (c) => c.SingleProductComponent,
+      import('./pages/single-advert/single-advert.component').then(
+        (c) => c.SingleAdvertComponent,
       ),
   },
   {
@@ -28,21 +28,8 @@ export const routes: Routes = [
       import('./pages/profile/profile.component').then(
         (c) => c.ProfileComponent,
       ),
-    // loadChildren: () => import('./routes/profile.routes').then((r) => r.routes),
-  },
-  {
-    path: 'profile/create-advert',
-    loadComponent: () =>
-      import('./pages/create-advert/create-advert.component').then(
-        (c) => c.CreateAdvertComponent,
-      ),
-  },
-  {
-    path: 'profile/my-adverts',
-    loadComponent: () =>
-      import('./pages/my-advertisement/my-advertisement.component').then(
-        (c) => c.MyAdvertisementComponent,
-      ),
+    loadChildren: () =>
+      import('./rotes/profile.routes').then((data) => data.ROUTES_PROFILES),
   },
   { path: '**', redirectTo: '/' },
 ];

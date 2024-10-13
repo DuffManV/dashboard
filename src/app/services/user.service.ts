@@ -23,16 +23,10 @@ export class UserService {
   }
 
   public updateUser(
-    id: string,
-    name: string,
-    login: string,
-    password: string,
+    id: string | undefined,
+    model: FormData,
   ): Observable<ArrayBuffer> {
-    return this.apiService.put(`${environment.apiUrl}/users/${id}`, {
-      name,
-      login,
-      password,
-    });
+    return this.apiService.put(`${environment.apiUrl}/users/${id}`, model);
   }
 
   public deleteUser(id: string): Observable<ArrayBuffer> {

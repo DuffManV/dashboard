@@ -1,5 +1,6 @@
-<p-dialog header="Пользователь" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
-  <div>{{phone}}</div>
+<p-dialog header="Пользователь" [modal]="true" [(visible)]="showPhone" [style]="{ width: '25rem' }"
+          (onHide)="setShowPhone()">
+  <div>{{phone()}}</div>
   <div>{{rulesTitle}}</div>
   <ul>
   @for (rulesTextItem of rulesText; track $index) {

@@ -15,23 +15,23 @@ import { ApiService } from '../../services/api.service';
 import { environment } from '../../../environments/environment';
 
 @Component({
-  selector: 'app-product-preview',
+  selector: 'app-advert-preview',
   standalone: true,
   imports: [NgOptimizedImage, DatePipe, RouterLink],
-  templateUrl: './product-preview.component.html',
-  styleUrl: './product-preview.component.scss',
+  templateUrl: './advert-preview.component.html',
+  styleUrl: './advert-preview.component.scss',
   providers: [ImageService, ApiService],
 })
-export class ProductPreviewComponent implements OnInit {
-  public product: InputSignal<IProduct | undefined> = input<
+export class AdvertPreviewComponent implements OnInit {
+  public advert: InputSignal<IProduct | undefined> = input<
     IProduct | undefined
   >();
   constructor(private imageService: ImageService) {
     effect(
       () => {
-        if (this.product()?.imagesIds[0] !== undefined) {
+        if (this.advert()?.imagesIds[0] !== undefined) {
           this.image.set(
-            this.imageService.getImage(this.product()?.imagesIds[0]),
+            this.imageService.getImage(this.advert()?.imagesIds[0]),
           );
         } else {
           this.image.set(environment.photoPlaceholder);
@@ -44,6 +44,6 @@ export class ProductPreviewComponent implements OnInit {
   public image: WritableSignal<string> = signal('');
 
   public ngOnInit(): void {
-    console.log('product', this.product());
+    console.log('product', this.advert()?.id);
   }
 }

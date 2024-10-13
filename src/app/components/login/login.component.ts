@@ -18,6 +18,7 @@ import { RegisterComponent } from '../register/register.component';
 import { UserService } from '../../services/user.service';
 import IUser from '../../interfaces/IUser';
 import { DropdownModule } from 'primeng/dropdown';
+import { NgClass, NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -32,6 +33,8 @@ import { DropdownModule } from 'primeng/dropdown';
     RegisterComponent,
     ReactiveFormsModule,
     DropdownModule,
+    NgClass,
+    NgStyle,
   ],
   providers: [AuthService, ApiService, UserService],
   templateUrl: './login.component.html',
@@ -42,9 +45,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   public header: string = 'Авторизация';
   public isRegisterVisible: boolean = false;
   public user: IUser | undefined = undefined;
-  public showEnter: boolean = false;
   public errorMessage: string = '';
   public loginForm: FormGroup;
+  public isMenuVisible: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -60,12 +63,11 @@ export class LoginComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     if (localStorage.getItem('token')) {
       this.getCurrentUser();
-    } else {
-      this.showEnter = true;
     }
   }
 
   public login(): Subscription {
+    this.isMenuVisible = false;
     return this.authService
       .login(
         this.loginForm.controls['phone'].value,
@@ -89,7 +91,8 @@ export class LoginComponent implements OnInit, OnDestroy {
       },
       error: (resp): void => {
         console.log(resp);
-        if (resp?.error?.errors[0] === 0) {
+        if (resp?.error?.errors.length > 0) {
+          this.authService.logout();
         }
       },
     });
@@ -105,8 +108,16 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.visible = false;
   }
 
+  public logout(): void {
+    this.authService.logout();
+    this.user = undefined;
+    this.loginForm.reset();
+  }
+
   public ngOnDestroy(): void {
     this.login().unsubscribe();
     this.getCurrentUser().unsubscribe();
   }
+
+  protected readonly close = close;
 }

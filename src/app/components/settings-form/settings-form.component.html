@@ -2,16 +2,29 @@
   <div class="d-inline-flex">
         <span>
            <label for="name">Имя</label>
-        <input type="text" pInputText formControlName="name" id="name" name="name">
+        <input type="text" pInputText formControlName="name" minlength="4" maxlength="64" id="name" name="name">
         </span>
-    <span>
-          <label for="phone">Номер телефона</label>
-        <input type="text" pInputText formControlName="phone" id="phone" name="phone">
-       </span>
   </div>
   <div>
-    <label for="address">Адрес</label>
-    <input type="text" pInputText formControlName="address" id="address" name="address">
+    <label for="phone">Номер телефона</label>
+    <p-inputMask mask="+9-(999)-999-99-99" id="phone" [style]="{ width: '300px' }"
+                 formControlName="phone"
+                 placeholder="Номер телефона"
+                 autocomplete="off"
+                 unmask="true"
+    />
+  </div>
+  <div class="d-inline-flex">
+        <span>
+           <label for="currentPassword">Текущий пароль</label>
+        <input type="text" minlength="8" maxlength="64" pInputText formControlName="currentPassword" id="currentPassword" name="currentPassword">
+        </span>
+  </div>
+  <div>
+        <span>
+          <label for="newPassword">Новый пароль</label>
+        <input type="text" minlength="8" maxlength="64" pInputText formControlName="newPassword" id="newPassword" name="newPassword">
+       </span>
   </div>
   <div>
     <app-button (click)="saveSettings()">Сохранить</app-button>

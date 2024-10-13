@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { Button } from 'primeng/button';
 import { SearchComponent } from '../search/search.component';
 import { RouterLink } from '@angular/router';
+import { ButtonComponent } from '../button/button.component';
 
 @Component({
   selector: 'app-header-down',
   standalone: true,
-  imports: [Button, SearchComponent, RouterLink],
+  imports: [Button, SearchComponent, RouterLink, ButtonComponent],
   templateUrl: './header-down.component.html',
   styleUrl: './header-down.component.scss',
 })

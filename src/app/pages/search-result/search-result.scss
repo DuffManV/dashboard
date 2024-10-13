@@ -41,6 +41,9 @@
   .p-inputgroup {
     flex-wrap: wrap;
   }
+  &-from {
+    margin-right: 8px;
+  }
   &-from,
   &-until {
     height: 40px;

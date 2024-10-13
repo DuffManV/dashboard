@@ -18,7 +18,7 @@ export default interface IPostOptions {
           | ReadonlyArray<string | number | boolean>;
       };
   reportProgress?: boolean;
-  responseType?: 'json';
+  responseType?: any;
   withCredentials?: boolean;
   transferCache?: {
     includeHeaders?: string[];

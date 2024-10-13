@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-@import "../node_modules/reset-css/sass/_reset.scss";
+//@import "../node_modules/reset-css/sass/_reset.scss";
 @import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "normalize.scss";
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 
@@ -20,7 +21,10 @@ input {
   height: 36px;
 }
 
+.p-button-label {
+  font-weight: 500;
+}
 
-.p-treenode-label {
-
+.p-dialog {
+  box-shadow: none;
 }
