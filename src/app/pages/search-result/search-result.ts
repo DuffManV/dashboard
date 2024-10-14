@@ -1,13 +1,11 @@
 import {
   Component,
-  inject,
   OnDestroy,
   OnInit,
   signal,
   WritableSignal,
 } from '@angular/core';
 import { AsyncPipe, KeyValuePipe, NgForOf } from '@angular/common';
-import { AdvertPreviewComponent } from '../../components/product-preview/advert-preview.component';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { InputTextModule } from 'primeng/inputtext';
 import { Button } from 'primeng/button';
@@ -18,6 +16,8 @@ import { SearchService } from '../../services/search.service';
 import { CategoryService } from '../../services/category.service';
 import ICategory from '../../interfaces/ICategory';
 import { ApiService } from '../../services/api.service';
+import { environment } from '../../../environments/environment';
+import { AdvertPreviewComponent } from '../../components/advert-preview/advert-preview.component';
 import { CategoriesTreeService } from '../../services/categoriesTree.service';
 
 @Component({
@@ -38,15 +38,13 @@ import { CategoriesTreeService } from '../../services/categoriesTree.service';
   styleUrl: './search-result.scss',
 })
 export class SearchResult implements OnInit, OnDestroy {
-  private route: ActivatedRoute = inject(ActivatedRoute);
-  private searchService: SearchService = inject(SearchService);
-  private categoriesService: CategoryService = inject(CategoryService);
-  private categoriesTreeService: CategoriesTreeService = inject(
-    CategoriesTreeService,
-  );
-  private searchSubscription: Subscription | null = null;
-  private routeSubscription: Subscription | null = null;
-  private categorySubscription: Subscription | null = null;
+  constructor(
+    private route: ActivatedRoute,
+    private searchService: SearchService,
+    private categoriesService: CategoryService,
+    private categoriesTreeService: CategoriesTreeService,
+    private routeSubscription: Subscription | null,
+  ) {}
 
   public request: string = '';
   public readonly showButtonText: string = 'Показать объявления';
@@ -54,16 +52,12 @@ export class SearchResult implements OnInit, OnDestroy {
   public readonly priceLabel: string = 'Цена';
   public selectedNode: any | null = null;
   public result: WritableSignal<[]> = signal([]);
+  public searchSubscription: Subscription | null = null;
+  public categorySubscription: Subscription | null = null;
   public categories: any[] = [];
   public categoriesNode: ICategory[] | undefined = [];
 
   public ngOnInit(): void {
-    this.routeSubscription = this.route.params.subscribe(
-      (data: Params): void => {
-        this.request = data['search'];
-        this.search();
-      },
-    );
     this.categorySubscription = this.categoriesService
       .getCategories()
       .subscribe((data: ICategory[]): void => {
@@ -71,6 +65,36 @@ export class SearchResult implements OnInit, OnDestroy {
         this.categoriesNode =
           this.categoriesTreeService.createCategoriesNode(data);
         console.log(data);
+      });
+    this.categorySubscription = this.categoriesService
+      .getCategories()
+      .subscribe((data: ICategory[]): void => {
+        console.log(data);
+        const categories: ICategory[] = [];
+        data.forEach((data: any): void => {
+          if (data.parentId === environment.emptyId) {
+            categories.push({
+              id: data.id,
+              parentId: data.parentId,
+              label: data.name,
+              children: [],
+              name: data.name,
+            });
+          }
+        });
+        categories.map((category: ICategory) => {
+          data.forEach((data: ICategory) => {
+            if (category.id === data.parentId) {
+              category.children &&
+                category.children.push(<ICategory>{
+                  id: data.id,
+                  label: data.name,
+                });
+            }
+          });
+        });
+        this.categories = categories;
+        console.log(this.categories);
       });
   }
 
@@ -103,6 +127,5 @@ export class SearchResult implements OnInit, OnDestroy {
   public ngOnDestroy(): void {
     this.routeSubscription?.unsubscribe();
     this.searchSubscription?.unsubscribe();
-    this.categorySubscription?.unsubscribe();
   }
 }

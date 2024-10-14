@@ -7,12 +7,12 @@ import { TreeModule } from 'primeng/tree';
 import { CategoriesTreeService } from '../../services/categoriesTree.service';
 import { Subscription } from 'rxjs';
 import { environment } from '../../../environments/environment';
-import { AllSecondLevelCategoriesComponent } from '../../components/all-second-level-categories/all-second-level-categories.component';
+import { SecondLevelCategoriesComponent } from '../../components/all-second-level-categories/second-level-categories.component';
 
 @Component({
   selector: 'app-all-categories',
   standalone: true,
-  imports: [NgIf, NgForOf, TreeModule, AllSecondLevelCategoriesComponent],
+  imports: [NgIf, NgForOf, TreeModule, SecondLevelCategoriesComponent],
   templateUrl: './all-categories.component.html',
   styleUrl: './all-categories.component.scss',
   providers: [CategoryService, CategoriesTreeService, ApiService],

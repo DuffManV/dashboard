@@ -1,7 +1,7 @@
 import IUser from './IUser';
 import ICategory from './ICategory';
 
-export default interface IProduct {
+export default interface IAdvert {
   id: string;
   user: IUser;
   name: string;

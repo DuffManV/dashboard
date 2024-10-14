@@ -1,9 +1,15 @@
 .product {
   .product-info {
+
     &-price,
     &-location,
     &-date {
       color: #1E293B;
+    }
+    &-price {
+      &:after{
+        content: ' \20BD';
+      }
     }
   }
   &:hover {

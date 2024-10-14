@@ -1,6 +1,11 @@
-<div class="card flex justify-content-center">
+<div class="container d-inline-flex">
+  <div class="col-xl-3 col-md-3 col-sm-3">
   @for (node of fistLevelCategories; track node){
     <div (click)="handleClickCategory(node)">{{node.name}}</div>
   }
+  </div>
   <app-all-second-level-categories [category]="category" [categories]="secondLevelCategories"></app-all-second-level-categories>
+  <div>
+
+  </div>
 </div>

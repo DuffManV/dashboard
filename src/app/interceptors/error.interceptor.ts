@@ -15,7 +15,7 @@ export const errorInterceptor: HttpInterceptorFn = (
   const messageService: MessageService = inject(MessageService);
   return next(req).pipe(
     catchError((err) => {
-      const errors = Object.values(err.error.errors).join(' ');
+      const errors: string = Object.values(err?.error?.errors).join(' ');
       console.log(errors);
       messageService.add({
         severity: 'warn',

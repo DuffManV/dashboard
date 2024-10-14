@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AsyncPipe, NgForOf } from '@angular/common';
-import { AdvertPreviewComponent } from '../../components/product-preview/advert-preview.component';
+import { AdvertPreviewComponent } from '../../components/advert-preview/advert-preview.component';
 import IProduct from '../../interfaces/IProduct';
 import { Observable, of } from 'rxjs';
 import { AdvertService } from '../../services/advert.service';

@@ -91,7 +91,10 @@ export class CreateAdvertComponent implements OnInit {
     );
   }
 
-  public addControl(category: any): void {
+  public addControl(category: any, index: number): void {
+    for (let i = this.categories.length - 1; i > index; i--) {
+      (<FormArray>this.form.get('categories')).removeAt(i);
+    }
     if (this.getOptions(category?.category?.id).length) {
       console.warn(this.getOptions(category?.category?.id));
       const item: FormGroup = this.fb.group({

@@ -1,0 +1,50 @@
+.adv {
+  display: flex;
+  position: relative;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+
+  &-img {
+    img {
+      width: 200px;
+      height: 120px;
+      object-position: center;
+      object-fit: cover;
+    }
+  }
+
+  &-text {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  &-cost {
+    color: #1E293B;
+    font-size: 18px;
+    font-weight: 600;
+    &:after {
+      content: ' \20BD';
+    }
+  }
+  &-link {
+  }
+  &-loc,
+  &-time {
+    font-size: 14px;
+    color: #64748B;
+  }
+}
+
+i {
+  position: absolute;
+  font-size: 1.3rem;
+  right: -7%;
+  top: -10%;
+  z-index: 99;
+  color: #EF4444;
+}
+
+
+
+

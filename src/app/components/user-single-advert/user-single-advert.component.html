@@ -1,0 +1,18 @@
+<div class="adv">
+  <div class="">
+    <i class="pi pi-times-circle" style="font-size: 1.5rem"></i>
+  </div>
+  <div class="d-flex flex-wrap justify-content-center">
+    <a [routerLink]="['/advert', advert().id]" class="adv-link">
+      <div class="adv-img">
+        <img src="{{image}}" alt="">
+      </div>
+      <span class="adv-text">{{ advert().name }}</span>
+    </a>
+    <div class="adv-cost">{{ advert().cost }}</div>
+    <div class="adv-desc">{{ advert().description }}</div>
+    <div class="adv-loc">{{ advert().location }}</div>
+    <div class="adv-time">{{ advert().createdAt | date }}</div>
+  </div>
+</div>
+

@@ -1,44 +1,13 @@
 .login {
   position: relative;
-  width: 100%;
   height: auto;
   color: #fff;
   cursor: pointer;
 
-  :hover {
-    color: #3B82F6;
-
-    &-text {
-      :hover {
-        svg > path {
-          fill: #fff;
-        }
-      }
-    }
-
-    .login-menu {
-      z-index: 99;
-      cursor: default;
-      &-item {
-        color: #1E293B;
-        cursor: pointer;
-        &:hover {
-          color: #3B82F6;
-
-        }
-      }
-      &-exit {
-        color: #EF4444;
-        cursor: pointer;
-        &:hover {
-          color: #ac2f2f;
-        }
-      }
-    }
-  }
-
   &-menu {
     position: absolute;
+    z-index: 99;
+    cursor: default;
     top: 22px;
     width: 147px;
     height: 108px;
@@ -49,6 +18,24 @@
     font-size: 14px;
     line-height: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    &-item {
+      color: #1E293B;
+      cursor: pointer;
+      &:hover {
+        color: #3B82F6;
+      }
+    }
+    &-exit {
+      color: #EF4444;
+      cursor: pointer;
+      &:hover {
+        color: #ac2f2f;
+      }
+    }
+  }
+
+  :hover {
+    color: #3B82F6;
   }
 
   &-password {
@@ -73,7 +60,6 @@
 
   .p-inputtext {
     display: flex;
-    //width: 300px;
   }
 
   .p-dialog .ui-dialog {

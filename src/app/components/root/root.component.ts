@@ -6,8 +6,7 @@ import { MainComponent } from '../../pages/main/main.component';
 import { SearchResult } from '../../pages/search-result/search-result';
 import { HeaderComponent } from '../header/header.component';
 import { SingleAdvertComponent } from '../../pages/single-advert/single-advert.component';
-import { ProfileComponent } from '../../pages/profile/profile.component';
-import { CreateAdvertComponent } from '../../pages/create-advert/create-advert.component';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +19,7 @@ import { CreateAdvertComponent } from '../../pages/create-advert/create-advert.c
     SearchResult,
     HeaderComponent,
     SingleAdvertComponent,
+    ToastModule,
   ],
   templateUrl: './root.component.html',
   styleUrl: './root.component.scss',
