@@ -2,11 +2,9 @@
 }
 .input {
   &-wrapper {
-    display: inline-block;
-
+    display: inline-flex;
   }
   &-component {
-    display: inline-flex;
     height: 36px;
     width: 100%;
     border-radius: 4px 0 0 4px;
