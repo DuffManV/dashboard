@@ -1,19 +1,15 @@
 .gallery {
   text-align: center;
   ::ng-deep {
-    .p-image-preview-container{
+    .p-image-preview-container {
       img {
         display: flex;
         object-fit: cover;
         object-position: center;
         justify-content: start;
-        //height: 512px;
-        //width: 100%;
       }
-
     }
   }
-
 }
 .main-image {
   display: flex;

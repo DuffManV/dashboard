@@ -7,8 +7,8 @@
 
   &-img {
     img {
-      width: 200px;
-      height: 120px;
+      width: 143px;
+      height: 100%;
       object-position: center;
       object-fit: cover;
     }
@@ -23,8 +23,9 @@
     color: #1E293B;
     font-size: 18px;
     font-weight: 600;
+    width: 100%;
     &:after {
-      content: ' \20BD';
+      content: '\20BD';
     }
   }
   &-link {
@@ -39,8 +40,8 @@
 i {
   position: absolute;
   font-size: 1.3rem;
-  right: -7%;
-  top: -10%;
+  right: 31%;
+  top: 3%;
   z-index: 99;
   color: #EF4444;
 }

@@ -9,7 +9,6 @@
     imageClass= "main-image"
   >
   </p-image>
-<!--  <img [src]="currentImage()" [alt]="currentImage()" class="main-image">-->
   <div class="thumbnails">
     @for ( image of imagesData; track $index) {
       <div  class="thumbnail" (mouseenter)="selectImage(image.itemImgSrc)">

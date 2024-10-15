@@ -3,8 +3,6 @@ import {
   inject,
   OnDestroy,
   OnInit,
-  signal,
-  Signal,
 } from '@angular/core';
 import { GalleriaModule } from 'primeng/galleria';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -49,7 +47,6 @@ export class SingleAdvertComponent implements OnInit, OnDestroy {
         .getOneAdvert(this.idAdvert)
         .subscribe((advert: IProduct): void => {
           this.advert = advert;
-          console.log(this.advert.imagesIds);
           this.imageIds = this.advert.imagesIds;
         });
     });

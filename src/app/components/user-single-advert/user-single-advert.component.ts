@@ -2,6 +2,8 @@ import { Component, effect, inject, input, InputSignal } from '@angular/core';
 import { ImageService } from '../../services/image.service';
 import { RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import {ApiService} from "../../services/api.service";
+import {AdvertService} from "../../services/advert.service";
 
 @Component({
   selector: 'app-user-single-advert',
@@ -9,10 +11,11 @@ import { DatePipe } from '@angular/common';
   imports: [RouterLink, DatePipe],
   templateUrl: './user-single-advert.component.html',
   styleUrl: './user-single-advert.component.scss',
-  providers: [ImageService],
+  providers: [ImageService, ApiService, AdvertService ],
 })
 export class UserSingleAdvertComponent {
   private imageService: ImageService = inject(ImageService);
+  private advertService: AdvertService = inject(AdvertService);
 
   public advert: InputSignal<any | undefined> = input();
   public image: string = '';
@@ -24,4 +27,7 @@ export class UserSingleAdvertComponent {
       );
     });
   }
+
+  public deleteAdv(): void {
+    this.advertService.deleteAdvert(this.advert().id)}
 }
