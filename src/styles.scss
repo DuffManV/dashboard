@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-//@import "../node_modules/reset-css/sass/_reset.scss";
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "normalize.scss";
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 a {
   cursor: pointer;
@@ -13,18 +13,45 @@ a {
 input:focus,
 select:focus,
 textarea:focus,
-button:focus {
+button:focus,
+.p-dialog,
+.p-dropdown{
   box-shadow: none;
 }
 
+input,
+textarea {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+
+textarea {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
 input {
+  width: 100% !important;
   height: 36px;
 }
 
-.p-button-label {
-  font-weight: 500;
+ul {
+  padding-left: 0 !important;
 }
 
-.p-dialog {
-  box-shadow: none;
+.p-button {
+  width: unset;
+  &-label {
+    font-weight: 500;
+  }
+}
+.p-dropdown-panel {
+  box-shadow: 1px 5px 20px 0;
+}
+p-dropdownitem {
+  li {
+    background-color: #fff;
+  }
+  :hover {
+    background-color: #e5e7eb;
+  }
 }

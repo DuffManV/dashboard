@@ -8,7 +8,7 @@
         <div class="d-flex justify-content-start">
           <p-tree class="all-advertisements-tree" selectionMode="single" (onNodeSelect)="listenEvent($event)"
                   (onNodeUnselect)="listenEvent($event)" [(selection)]="selectedNode"
-                  [value]="categories"/>
+                  [value]="categoriesNode"/>
         </div>
         <h5 class="price mt-3 mb-3">{{ priceLabel }}</h5>
         <p-inputGroup class="price d-flex">

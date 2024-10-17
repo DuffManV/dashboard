@@ -18,7 +18,7 @@ export const errorInterceptor: HttpInterceptorFn = (
       const errors: string = Object.values(err?.error?.errors).join(' ');
       console.log(errors);
       messageService.add({
-        severity: 'warn',
+        severity: 'error',
         summary: 'Ошибка',
         detail: errors,
       });

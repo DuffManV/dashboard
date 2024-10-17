@@ -6,6 +6,7 @@ import { MainComponent } from '../../pages/main/main.component';
 import { SearchResult } from '../../pages/search-result/search-result';
 import { HeaderComponent } from '../header/header.component';
 import { SingleAdvertComponent } from '../../pages/single-advert/single-advert.component';
+import { MessagesModule } from 'primeng/messages';
 import { ToastModule } from 'primeng/toast';
 
 @Component({
@@ -19,6 +20,7 @@ import { ToastModule } from 'primeng/toast';
     SearchResult,
     HeaderComponent,
     SingleAdvertComponent,
+    MessagesModule,
     ToastModule,
   ],
   templateUrl: './root.component.html',

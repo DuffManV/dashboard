@@ -8,11 +8,18 @@ import { CategoriesTreeService } from '../../services/categoriesTree.service';
 import { Subscription } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { SecondLevelCategoriesComponent } from '../../components/all-second-level-categories/second-level-categories.component';
+import { AdvertPreviewComponent } from '../../components/advert-preview/advert-preview.component';
 
 @Component({
   selector: 'app-all-categories',
   standalone: true,
-  imports: [NgIf, NgForOf, TreeModule, SecondLevelCategoriesComponent],
+  imports: [
+    NgIf,
+    NgForOf,
+    TreeModule,
+    SecondLevelCategoriesComponent,
+    AdvertPreviewComponent,
+  ],
   templateUrl: './all-categories.component.html',
   styleUrl: './all-categories.component.scss',
   providers: [CategoryService, CategoriesTreeService, ApiService],

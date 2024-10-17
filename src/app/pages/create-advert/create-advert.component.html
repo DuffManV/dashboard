@@ -1,9 +1,9 @@
-<div class="d-flex justify-content-center mt-4">
-  <div class="col-xl-8 col-md-8 col-sm-12 justify-content-between">
+<div class="d-flex justify-content-start mt-4">
+  <div class="col-xl-12 col-md-12 col-sm-12 justify-content-between">
     <div>
       <h4 class="mb-3">{{ title }}</h4>
     </div>
-    <form [formGroup]="form" action="">
+    <form [formGroup]="form" class="create-advert" action="">
       <div>
         <div><label for="categories">Категория</label></div>
         <div formArrayName="categories" id="categories">
@@ -49,7 +49,7 @@
         </div>
       </div>
       <div>
-        <label for="email">email</label>
+        <label for="email">E-mail</label>
         <input type="text" pInputText formControlName="email" id="email" name="email">
       </div>
       <div>
@@ -63,6 +63,7 @@
       <div>
         <label for="name">Изображения</label>
         <p-fileUpload
+          class="create-advert-img"
           name="uploadImages[]"
           (onSelect)="onSelect($event)"
           [multiple]="true"

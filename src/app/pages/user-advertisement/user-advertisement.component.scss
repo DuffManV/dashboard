@@ -6,8 +6,10 @@
   }
 
   &-new {
-    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='4' ry='4' stroke='%233B82F64D' stroke-width='5' stroke-dasharray='15' stroke-dashoffset='1' stroke-linecap='square'/%3e%3c/svg%3e");
     border-radius: 4px;
+    &:hover {
+      background-color: #E1E9F0;
+    }
 
     &-circle {
       height: 60px;
@@ -15,15 +17,10 @@
       border: 4px dashed rgba(59, 130, 246, 1);
       border-radius: 50%;
       color: rgba(59, 130, 246, 1);
-
+      i {
+        font-size: 1.2rem;
+      }
     }
   }
 }
-i {
-  position: absolute;
-  font-size: 1.2rem;
-  right: 28%;
-  top: 3%;
-  z-index: 99;
-  color: #EF4444;
-}
+

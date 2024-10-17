@@ -1,10 +1,18 @@
-<div class="container d-inline-flex">
-  <div class="col-xl-3 col-md-3 col-sm-3">
-  @for (node of fistLevelCategories; track node){
-    <div (click)="handleClickCategory(node)">{{node.name}}</div>
-  }
-  </div>
-  <app-all-second-level-categories [category]="category" [categories]="secondLevelCategories"></app-all-second-level-categories>
-  <div>
+<div class="d-inline-flex col-12 justify-content-center">
+  <div class="row col-xl-8 col-lg-8 col-md-8 col-sm-8">
+    <div class="d-inline-flex pb-2 ps-0 pe-0">
+      <div class="col-xl-3 col-md-3 col-sm-3 mr-3 ml-3">
+        @for (node of fistLevelCategories; track node) {
+          <div class="mb-2 category" (click)="handleClickCategory(node)">{{ node.name }}
+            <i class="pi pi-angle-right"></i></div>
+        }
+      </div>
+      <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 justify-content-between">
+        <app-all-second-level-categories class="second-level-item" [category]="category"
+                                         [categories]="secondLevelCategories"></app-all-second-level-categories>
+      </div>
+      <div>
+      </div>
+    </div>
   </div>
 </div>
