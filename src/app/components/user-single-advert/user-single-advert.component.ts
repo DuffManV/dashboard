@@ -2,8 +2,8 @@ import { Component, effect, inject, input, InputSignal } from '@angular/core';
 import { ImageService } from '../../services/image.service';
 import { RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
-import {ApiService} from "../../services/api.service";
-import {AdvertService} from "../../services/advert.service";
+import { ApiService } from '../../services/api.service';
+import { AdvertService } from '../../services/advert.service';
 
 @Component({
   selector: 'app-user-single-advert',
@@ -11,7 +11,7 @@ import {AdvertService} from "../../services/advert.service";
   imports: [RouterLink, DatePipe],
   templateUrl: './user-single-advert.component.html',
   styleUrl: './user-single-advert.component.scss',
-  providers: [ImageService, ApiService, AdvertService ],
+  providers: [ImageService, ApiService, AdvertService],
 })
 export class UserSingleAdvertComponent {
   private imageService: ImageService = inject(ImageService);
@@ -29,5 +29,11 @@ export class UserSingleAdvertComponent {
   }
 
   public deleteAdv(): void {
-    this.advertService.deleteAdvert(this.advert().id)}
+    if (confirm('Удалить это объявление?')) {
+      this.advertService
+        .deleteAdvert(this.advert().id)
+        .subscribe((res) => console.log(res));
+      console.log('deleted');
+    } else return;
+  }
 }

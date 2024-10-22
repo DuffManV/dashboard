@@ -7,11 +7,11 @@
   &-menu {
     position: absolute;
     z-index: 99;
+    width: 180px;
+    height: 150px;
     cursor: default;
     top: 22px;
-    width: 147px;
-    height: 108px;
-    padding: 16px 8px;
+    padding: 16px;
     background: #fff;
     border-radius: 4px;
     color: #1E293B;
@@ -19,6 +19,11 @@
     line-height: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     &-item {
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+      text-align: right;
       color: #1E293B;
       cursor: pointer;
       &:hover {
@@ -26,6 +31,7 @@
       }
     }
     &-exit {
+      width: 100%;
       color: #EF4444;
       cursor: pointer;
       &:hover {

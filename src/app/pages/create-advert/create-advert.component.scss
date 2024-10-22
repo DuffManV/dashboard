@@ -1,0 +1,21 @@
+.create-advert{
+  label,
+  input,
+  textarea, {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .p-inputtext {
+    padding: 0;
+  }
+ &-img {
+   ::ng-deep {
+     .p-button {
+       width: unset;
+     }
+
+   }
+ }
+}

@@ -1,15 +1,27 @@
-<div class="d-flex col-xl-8 col-md-8">
-  <div
-    class="product-image col-xl-8 col-md-8 col-sm-8 justify-content-center"
-  >
-    <app-gallery [images]="imageIds"></app-gallery>
-  </div>
-  <div class="col-md-6 col-xl-4">
-    <p-button icon="pi pi-phone" iconPos="left" label="Показать номер телефона"
-              (click)="showPhoneFn(true)"></p-button>
+<div class="d-inline-flex flex-wrap col-xl-12 col-lg-12 col-md-12 col-sm-12 justify-content-center">
+
+  <div class="d-flex col-xl-8 col-lg-8 col-md-12 col-sm-12">
+    <div
+      class="product-image col-xl-8 col-lg-8 col-md-8 col-sm-8 justify-content-start "
+    >
+      <span>{{ advert?.name }}</span>
+      <app-gallery [images]="imageIds"></app-gallery>
+    </div>
+    <div class="d-flex col-xl-4 col-lg-4 col-md-4 col-sm-4 justify-content-end">
+      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
+        <p-button icon="pi pi-phone" iconPos="left" label="Показать номер телефона"
+                  (click)="showPhoneFn(true)"></p-button>
+        <div>
+          <h2>Адрес</h2>
+          {{ advert?.location }}
+          <h2>Описание</h2>
+          {{ advert?.description }}
+        </div>
+      </div>
+    </div>
   </div>
   <app-seller-phone [phone]="advert?.phone" [showPhone]="showPhone"
                     (closedDialog)="showPhoneFn(false)"></app-seller-phone>
+
+
 </div>
-
-
