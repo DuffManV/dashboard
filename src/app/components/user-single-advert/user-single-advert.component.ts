@@ -1,9 +1,9 @@
 import { Component, effect, inject, input, InputSignal } from '@angular/core';
 import { ImageService } from '../../services/image.service';
 import { RouterLink } from '@angular/router';
-import { DatePipe } from '@angular/common';
 import { ApiService } from '../../services/api.service';
 import { AdvertService } from '../../services/advert.service';
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-user-single-advert',

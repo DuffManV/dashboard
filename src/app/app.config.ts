@@ -11,6 +11,10 @@ import { authInterceptor } from './interceptors/auth.interceptor';
 import { errorInterceptor } from './interceptors/error.interceptor';
 import { MessageService } from 'primeng/api';
 import { DialogService } from 'primeng/dynamicdialog';
+import { registerLocaleData } from '@angular/common';
+import localDataRu from '@angular/common/locales/ru';
+
+registerLocaleData(localDataRu);
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -19,7 +23,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideAnimations(),
     provideHttpClient(withInterceptors([authInterceptor, errorInterceptor])),
-    [{ provide: LOCALE_ID, useValue: 'ru-RU' }],
+    { provide: LOCALE_ID, useValue: 'ru-RU' },
     DialogService,
     MessageService,
   ],
