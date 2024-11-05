@@ -1,4 +1,4 @@
-import { Component, inject, model, OnDestroy, OnInit } from '@angular/core';
+import {Component, inject, model, OnDestroy, OnInit} from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -6,13 +6,13 @@ import {
   Validators,
 } from '@angular/forms';
 import IUser from '../../interfaces/IUser';
-import { ButtonComponent } from '../button/button.component';
-import { InputTextModule } from 'primeng/inputtext';
-import { PaginatorModule } from 'primeng/paginator';
-import { UserService } from '../../services/user.service';
+import {ButtonComponent} from '../button/button.component';
+import {InputTextModule} from 'primeng/inputtext';
+import {PaginatorModule} from 'primeng/paginator';
+import {UserService} from '../../services/user.service';
 import IChangeUser from '../../interfaces/IChangeUser';
-import { InputMaskModule } from 'primeng/inputmask';
-import { Subscription } from 'rxjs';
+import {InputMaskModule} from 'primeng/inputmask';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-settings-form',
@@ -44,8 +44,11 @@ export class SettingsFormComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this.userServiceSubscription = this.userService
       .getCurrentUser()
-      .subscribe((user) => (this.user = user));
-    this.user && this.settingsForm.controls['name'].setValue(this.user.name);
+      .subscribe((user: IUser) => {
+        this.user = user;
+        this.user && this.settingsForm.controls['name'].setValue(this.user.name);
+      });
+
   }
 
   public saveSettings(): void {
