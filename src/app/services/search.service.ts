@@ -10,7 +10,7 @@ export class SearchService {
   constructor(private http: HttpClient) {}
 
   public search(
-    searchString: string,
+    searchString: string | null,
     category?: string | null,
   ): Observable<[]> {
     return this.http.post<[]>(`${environment.apiUrl}/advert/search`, {

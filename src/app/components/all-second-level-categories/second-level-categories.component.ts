@@ -1,6 +1,7 @@
-import { Component, effect, input, InputSignal } from '@angular/core';
+import {Component, effect, inject, input, InputSignal} from '@angular/core';
 import ICategory from '../../interfaces/ICategory';
-import { JsonPipe } from '@angular/common';
+import {JsonPipe} from '@angular/common';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-all-second-level-categories',
@@ -10,9 +11,12 @@ import { JsonPipe } from '@angular/common';
   styleUrl: './second-level-categories.component.scss',
 })
 export class SecondLevelCategoriesComponent {
+  private router: Router = inject(Router);
+
   public category: InputSignal<ICategory | undefined> = input();
   public categories: InputSignal<[]> = input([]);
-  public items: any[] = [];
+  public items: any[] = []
+
   constructor() {
     effect((): void => {
       this.items = [];
@@ -24,6 +28,15 @@ export class SecondLevelCategoriesComponent {
         });
       });
       console.log(this.items);
+    });
+  }
+
+  public handleClick(category: string) {
+    this.router.navigate(['search'], {
+      queryParams: {
+        advert: null,
+        category: category,
+      }
     });
   }
 }

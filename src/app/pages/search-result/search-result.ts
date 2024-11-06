@@ -6,19 +6,19 @@ import {
   signal,
   WritableSignal,
 } from '@angular/core';
-import { AsyncPipe, KeyValuePipe, NgForOf } from '@angular/common';
-import { AdvertPreviewComponent } from '../../components/advert-preview/advert-preview.component';
-import { InputGroupModule } from 'primeng/inputgroup';
-import { InputTextModule } from 'primeng/inputtext';
-import { Button } from 'primeng/button';
-import { TreeModule, TreeNodeSelectEvent } from 'primeng/tree';
-import { Subscription } from 'rxjs';
-import { ActivatedRoute, Params } from '@angular/router';
-import { SearchService } from '../../services/search.service';
-import { CategoryService } from '../../services/category.service';
+import {AsyncPipe, KeyValuePipe, NgForOf} from '@angular/common';
+import {AdvertPreviewComponent} from '../../components/advert-preview/advert-preview.component';
+import {InputGroupModule} from 'primeng/inputgroup';
+import {InputTextModule} from 'primeng/inputtext';
+import {Button} from 'primeng/button';
+import {TreeModule, TreeNodeSelectEvent} from 'primeng/tree';
+import {Subscription} from 'rxjs';
+import {ActivatedRoute} from '@angular/router';
+import {SearchService} from '../../services/search.service';
+import {CategoryService} from '../../services/category.service';
 import ICategory from '../../interfaces/ICategory';
-import { ApiService } from '../../services/api.service';
-import { CategoriesTreeService } from '../../services/categoriesTree.service';
+import {ApiService} from '../../services/api.service';
+import {CategoriesTreeService} from '../../services/categoriesTree.service';
 
 @Component({
   selector: 'app-search-result',
@@ -48,7 +48,8 @@ export class SearchResult implements OnInit, OnDestroy {
   private routeSubscription: Subscription | null = null;
   private categorySubscription: Subscription | null = null;
 
-  public request: string = '';
+  public advert: string | null = '';
+  public category: string | null = '';
   public readonly showButtonText: string = 'Показать объявления';
   public readonly title: string = 'Объявления по запросу';
   public readonly priceLabel: string = 'Цена';
@@ -58,9 +59,10 @@ export class SearchResult implements OnInit, OnDestroy {
   public categoriesNode: ICategory[] | undefined = [];
 
   public ngOnInit(): void {
-    this.routeSubscription = this.route.params.subscribe(
-      (data: Params): void => {
-        this.request = data['search'];
+    this.routeSubscription = this.route.queryParamMap.subscribe(
+      (data): void => {
+        this.advert = data.get('advert');
+        this.category = data.get('category');
         this.search();
       },
     );
@@ -74,10 +76,11 @@ export class SearchResult implements OnInit, OnDestroy {
   }
 
   public search(): void {
-    if (this.request) {
+    if (this.advert || this.category) {
       this.searchSubscription = this.searchService
-        .search(this.request.toLowerCase(), null)
+        .search(this.advert, this.category)
         .subscribe((data: any): void => {
+          console.log(this.category)
           this.result.set(data);
         });
     }
@@ -88,10 +91,10 @@ export class SearchResult implements OnInit, OnDestroy {
       event.node.expanded = !event.node.expanded;
     } else {
       this.searchSubscription = this.searchService
-        .search('', this.selectedNode.id)
+        .search(null, this.selectedNode.id)
         .subscribe((data: []): void => {
           this.result.set(data);
-          this.request = '';
+          this.category = '';
           console.log('search result', this.result());
         });
       console.log(this.selectedNode);

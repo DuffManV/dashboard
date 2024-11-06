@@ -5,7 +5,7 @@ import { authGuard } from './guards/auth.guard';
 export const routes: Routes = [
   { path: '', component: MainComponent },
   {
-    path: 'search/:search',
+    path: 'search',
     loadComponent: () =>
       import('./pages/search-result/search-result').then((c) => c.SearchResult),
   },

@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { InputTextModule } from 'primeng/inputtext';
-import { FormsModule } from '@angular/forms';
-import { Button } from 'primeng/button';
-import { Router } from '@angular/router';
-import { ButtonComponent } from '../button/button.component';
+import {Component} from '@angular/core';
+import {InputTextModule} from 'primeng/inputtext';
+import {FormsModule} from '@angular/forms';
+import {Button} from 'primeng/button';
+import {Router} from '@angular/router';
+import {ButtonComponent} from '../button/button.component';
 
 @Component({
   selector: 'app-search',
@@ -17,10 +17,16 @@ export class SearchComponent {
   protected readonly cssClass: string = 'button-search';
   public searchString: string = '';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+  }
 
   public clickHandler = (): void => {
-    this.router.navigate(['search', this.searchString]);
+    this.router.navigate(['search'], {
+      queryParams: {
+        advert: this.searchString.toLowerCase(),
+        category: null
+      }
+    });
     this.searchString = '';
   };
   public changeInput = (): void => {

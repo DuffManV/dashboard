@@ -1,14 +1,17 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
-import { NgForOf, NgIf } from '@angular/common';
-import { CategoryService } from '../../services/category.service';
+import {Component, inject, OnDestroy, OnInit} from '@angular/core';
+import {NgForOf, NgIf} from '@angular/common';
+import {CategoryService} from '../../services/category.service';
 import ICategory from '../../interfaces/ICategory';
-import { ApiService } from '../../services/api.service';
-import { TreeModule } from 'primeng/tree';
-import { CategoriesTreeService } from '../../services/categoriesTree.service';
-import { Subscription } from 'rxjs';
-import { environment } from '../../../environments/environment';
-import { SecondLevelCategoriesComponent } from '../../components/all-second-level-categories/second-level-categories.component';
-import { AdvertPreviewComponent } from '../../components/advert-preview/advert-preview.component';
+import {ApiService} from '../../services/api.service';
+import {TreeModule} from 'primeng/tree';
+import {CategoriesTreeService} from '../../services/categoriesTree.service';
+import {Subscription} from 'rxjs';
+import {environment} from '../../../environments/environment';
+import {
+  SecondLevelCategoriesComponent
+} from '../../components/all-second-level-categories/second-level-categories.component';
+import {AdvertPreviewComponent} from '../../components/advert-preview/advert-preview.component';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-all-categories',
